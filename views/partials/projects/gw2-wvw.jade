@@ -1,0 +1,76 @@
+section#gw2w2w
+	h2 GuildWars2 WvW Objective Tracker
+
+	.row
+		.col-md-18
+		
+			p.indent 
+				| <a href="http://gw2w2w.com">gw2w2w.com</a> is javascript heavy application with very minimal reliance on server side scripting. 
+				| All the data is retrieved asynchronously from Arena.net's API, and massaged into a useful tool for players of Guild Wars 2.
+			
+			p.indent jQuery is used for the Ajax calls, DOM manipulation, and UI Hooks, with Underscore for templating and object querying and manipulation.
+			
+			
+			p <strong>Here's a quick overview of how <a href="http://gw2w2w.com/en/fort-aspenwood">a page</a> is generated</strong> and an objective is updated
+
+			ol.walkthrough
+				li App.js parses the url path to determine which model and listeners to use
+					
+					h1 CODE	
+				
+				li When the world's name is defined, objects and listeners are created to be used by the <a href="http://direct.gw2w2w.com/assets/js/app.obj.objectives.js">Objectives Model</a>
+					
+					h1 CODE
+
+					ul.small
+						li The listener's are global functions defined by the model which are called by the Anet object as events are triggered
+						li 
+							| The <a href="http://direct.gw2w2w.com/assets/js/anet.js"><var>Anet</var></a> object abstracts away all the API calls, and builds the base objects representing the Match Details including public getters. 
+							| It requests fresh data automatically every few seconds
+						li 
+							| The <a href="http://direct.gw2w2w.com/assets/js/app.obj.scoreboard.js"><var>Scoreboard</var></a>, 
+							| <a href="http://direct.gw2w2w.com/assets/js/app.obj.objectives.js"><var>Objectives</var></a>, 
+							| <a href="http://direct.gw2w2w.com/assets/js/app.obj.eventlog.js"><var>EventLog</var></a>, 
+							| and <a href="http://direct.gw2w2w.com/assets/js/app.obj.guilds.js"><var>Guilds</var></a> 
+							| objects handle their own sections of the page
+						
+					
+				
+				li The first time onMatchData() is called, it renders the HTML for page and initialized the cached jQuery objects used by each handler
+					
+					h1 CODE
+
+
+				
+				li As objectives are won in the game, ArenaNet publishes the new owners in the API, which triggers a call to the onOwnerChange() listener
+					
+					h1 CODE
+
+					| The listener hands the event off to the Objectives object, which updates the DOM to display the current state of gameplay, and then passes off calls to the <var>Guilds</var> object, and the <var>EventLog</var> object as needed
+				
+			
+		
+		.col-md-6
+			p.indent To see all the code, here are direct links to most of the unprocessed sources:
+			
+			ul
+				li: a(href="http://direct.gw2w2w.com?ViewSource") default.cfm
+				li: a(href="http://direct.gw2w2w.com/assets/css/custom.css") custom.css
+			
+			ul
+				each ixFile in ['app.js','anet.js','app.model.worlds.js','app.model.objectives.js','app.obj.scoreboard.js','app.obj.objectives.js','app.obj.eventlog.js','app.obj.guilds.js']
+					li: a(href="http://direct.gw2w2w.com/assets/js/#{ixFile}") #{ixFile}
+			
+			ul
+				each ixFile in ['worldOptions.html','worldOptions-matches.html','worldOptions-worlds.html','matchDetails.html','matchDetails-map.html','matchDetails-overallScores.html','matchDetails-MapScore.html','matchDetails-objectives.html','log.html','log-newOwner.html','log-newClaimer.html']
+					li: a(href="view-source:http://direct.gw2w2w.com/templates/#{ixFile}") #{ixFile}
+			
+
+			section.walkthrough
+				p.indent The icons are contained in a tiny <a href="http://ws.gw2w2w.com/images/sprite3-60x150.png">single sprite</a>, and relies on a naming scheme to make state changes simple
+				
+					
+					h1 CODE	
+
+
+					p.indent This approach allows the app to add and remove simple classNames to update the state of the data

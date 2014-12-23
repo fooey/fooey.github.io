@@ -1,0 +1,10 @@
+
+section#gw2dyes
+	h2 GuildWars2 Dyes
+	p.indent 
+		| This project, <a href="http://dyes.gw2-events.com">dyes.gw2-events.com</a>, is much simpler then gw2w2w.com, and is more a showcase of a useful tool built with a small amount of code. 
+		| <small>(<a href="http://dyes.gw2-events.com/assets/js/custom.js">/assets/js/custom.js</a>)</small>
+	
+	p.indent The remote API is only called once on page load. As the data is recieved, it's updated with the RGB and HSL/HSV data the app needs, and cached off for reuse.
+	
+	p.indent The HTML Canvas isn't used, the dots are placed using simple CSS positioning based on algorithms which HSV and HSL information into cartesian coordinates.

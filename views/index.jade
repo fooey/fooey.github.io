@@ -1,0 +1,23 @@
+extends layout
+
+block content
+	#home
+		include ./partials/welcome.jade
+
+		section: .container: .row: .col-md-12
+			include ./partials/overview.jade
+
+		section#Contact.alt: .container: .row: .col-md-12
+			include ./partials/contact.jade
+
+		//- section: .container: .row: .col-md-12
+		//- 	include ./partials/knowledge.jade
+
+		//- section: .container: .row: .col-md-12
+		//- 	include ./partials/experience.jade
+
+		//- //- section: .container: .row: .col-md-12
+		//- //- 	include ./partials/projects.jade
+
+		//- section.alt: .container: .row: .col-md-12
+		//- 	include ./partials/contact.jade

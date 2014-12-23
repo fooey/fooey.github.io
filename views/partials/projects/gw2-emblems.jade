@@ -1,0 +1,70 @@
+section#gw2guilds
+	h2 GuildWars2 Guild Emblem Renderer
+
+	.row
+		.col-md-18
+			p.indent 
+				| This site, <a href="http://guilds.gw2w2w.com/">guilds.gw2w2w.com</a>, is a small project spun off from a bigger <a href="https://github.com/fooey/gw2w2w-ws">pet project</a> as standalone site which works well as a code demonstration. 
+				| The full source for the site is available at <a href="https://github.com/fooey/node-gw2guilds">https://github.com/fooey/node-gw2guilds</a>
+			
+			p.indent The site runs on Node.js and uses and the Rapheal.js library for generating the emblems as SVG images based on API's published by <a href="http://wiki.guildwars2.com/wiki/API:Main">ArenaNet</a>.
+			
+
+			P: strong Here's a quick overview of some of the highlights for how the emblems are produced:
+
+			ol.walkthrough
+				li 
+					p 
+						| Because the free database tiers on Heroku can be very slow, the app utilizes locally stored .json for caching rather than invoking the API for each request. 
+						| I built a small, custom, caching system to accomplish this without getting in the way.
+					
+					p This is the <a href="https://github.com/fooey/node-gw2guilds/blob/master/lib/guilds.js#L36-L51">guild library's</a> side of the request
+											
+
+					pre(data-src="/samples/gw2-emblems/guilds.getById.js")
+
+
+
+					p And the <a href="https://github.com/fooey/node-gw2guilds/blob/master/lib/cache.js#L62-L73">caching library's</a> side
+
+					
+					pre(data-src="/samples/gw2-emblems/cache.get.js")
+
+
+					p 
+						| This approach playes to Node and JavaScript's strengths of using asynchronous callbacks rather than conditional statements. 
+						| The getById() method calls cache.get() with 4 arguments
+					ol
+						li the guildId as the unique cacheKey
+						li the duration for which the cache is valid
+						li a callback to be used if there is not a cached copy
+						li and finally, the callback to be invoked to return the data
+					
+					p The __isFresh() method checks for and validates the local cache copy, and accepts separate callbacks if it is good or bad.
+					
+				li 
+					p 
+						| The data returned is handed off to the emblem renderer, which as mentioned before, uses the Raphel.js library to convert the API data to an svg version of the guild emblem. 
+						| The bulk of the work is done by 3 functions: __drawBackground() and __drawForeground(), both which both call __drawShape() to do the actual svg manipulation.
+					
+					p This is a snippet from <a href="https://github.com/fooey/node-gw2guilds/blob/master/lib/emblem.js#L141-L163">__drawForeground()</a> where it hands off different datasets to __drawShape()
+					
+					
+					pre(data-src="/samples/gw2-emblems/emblem.drawForeground.js")
+
+
+					p And the <a href="https://github.com/fooey/node-gw2guilds/blob/master/lib/emblem.js#L105-L120">__drawShape()</a> method which handles the data
+					
+					
+					pre(data-src="/samples/gw2-emblems/emblem.drawShape.js")
+
+
+					p Once more, I attempt to minimize event loop blocking by leveraging callbacks and keeping things asynchonous as much as possible
+					
+				
+			
+		
+		.col-md-6
+			p.indent An example of a guild emblem:
+			
+			p.text-center: img(src="http://guilds.gw2w2w.com/guilds/ArenaNet/256.svg" width=256 height=256)
