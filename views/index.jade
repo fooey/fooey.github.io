@@ -2,22 +2,37 @@ extends layout
 
 block content
 	#home
-		include ./partials/welcome.jade
+		include ./partials/welcome
+
 
 		section: .container: .row: .col-md-12
-			include ./partials/overview.jade
+			include ./partials/overview
 
-		section#Contact.alt: .container: .row: .col-md-12
-			include ./partials/contact.jade
+
+		section#contact.alt: .container: .row: .col-md-12
+			include ./partials/contact
+
+
+		section: .container: .row: .col-md-12
+			include ./partials/knowledge/index
+
+
+		section.alt: .container: .row: .col-md-12
+			include ./partials/contact
+
+
+		section: .container: .row: .col-md-12
+			include ./partials/projects/index
+
+
+		section.alt: .container: .row: .col-md-12
+			include ./partials/contact
+
+
 
 		//- section: .container: .row: .col-md-12
-		//- 	include ./partials/knowledge.jade
+		//- 	include ./partials/experience
 
-		//- section: .container: .row: .col-md-12
-		//- 	include ./partials/experience.jade
-
-		//- //- section: .container: .row: .col-md-12
-		//- //- 	include ./partials/projects.jade
 
 		//- section.alt: .container: .row: .col-md-12
-		//- 	include ./partials/contact.jade
+		//- 	include ./partials/contact

@@ -1,0 +1,82 @@
+
+.navbar-default {
+	& .navbar-toggle:hover,
+	& .navbar-toggle:focus,
+	& .navbar-collapse,
+	& {
+		background-color: @brand-info;
+		border: none;
+		.border-radius('');
+	}
+
+	margin: 0;
+	min-width: 240px;
+
+	& .navbar-toggle {
+		border: none;
+		&:hover {
+			background-color: transparent;
+		}
+		.icon-bar {
+			background-color: rgba(255, 255, 255, .6);
+		}
+	}
+
+	.navbar-brand {
+		.script();
+		font-size: 20pt;
+		line-height: 60px;
+		padding: 0 20px;
+		margin: 0;
+		padding-left: 2vw;
+	}
+
+	.navbar-nav {
+		margin: 0;
+		padding: 0 20px 0 0;
+		padding-right: 2vw;
+
+		& > li {
+			margin: 0;
+			padding: 0;
+
+			& > a {
+				padding: 0;
+				margin: 0;
+				color: #fff;
+				text-align: center;
+
+				font: 300 12pt/32pt Roboto Condensed;
+				width: 100%;
+
+				@media(min-width: @grid-float-breakpoint) { font-size: 1.8vw; width: 60px;  width: 10vw; line-height: 60px; }
+				@media(min-width: @screen-sm-min) { font-size: 1.6vw; width: 10vw; }
+				@media(min-width: @screen-md-min) { font-size: 1.4vw; width: 10vw; }
+				@media(min-width: 1600px) { font-size: 1.2vw; width: 9vw }
+				@media(min-width: 1900px) { font-size: 1vw; width: 8vw }
+				@media(min-width: 2300px) { font-size: .8vw; width: 7vw }
+
+				.opacity(.8);
+				.transition(all 150ms ease-in);
+
+				&:hover {
+					.opacity(1);
+					font-size: 14pt;
+
+					@media(min-width: @grid-float-breakpoint) { font-size: 9pt; }
+					@media(min-width: @screen-sm-min) { font-size: 11pt; }
+					@media(min-width: @screen-md-min) { font-size: 1.6vw; }
+					@media(min-width: 1600px) { font-size: 1.3vw; }
+					@media(min-width: 1900px) { font-size: 1.1vw; }
+					@media(min-width: 2300px) { font-size: .9vw; }
+				}
+			}
+
+			// &.defocus > a {
+			// 	.transition(all 100ms ease-in);
+			// 	.opacity(.6);
+			// }
+		}
+
+	}
+}

@@ -1,0 +1,43 @@
+
+
+
+.contacts {
+	.method a {
+		display: block;
+		text-align: center;
+		font-size: 8pt;
+
+		@media(min-width: @screen-xs-min) { font-size: 10pt; }
+		@media(min-width: @screen-sm-min) { font-size: 11pt; }
+		// @media(min-width: @screen-md-min) { font-size: 13pt; }
+
+		&:hover {
+			text-decoration: none;
+		}
+
+		perspective: 1000;
+
+		.fa {
+			font-size: 32pt;
+			font-size: 12vw;
+			line-height: 32vw;
+			line-height: 12vw;
+			display: block;
+
+			color: darken(@brand-success, 10%);
+
+			@media(min-width: @screen-lg-min) { font-size: 160px; line-height: 160px }
+
+			.transition(all 250ms ease-in); //, transform 1000ms ease-in
+
+			&:hover {
+				color: @brand-success;
+				font-size: 36pt;
+				font-size: 14vw;
+				@media(min-width: @screen-lg-min) { font-size: 180px; }
+				// .transform(rotateY(360deg));
+			}
+		}
+
+	}
+}

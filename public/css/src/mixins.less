@@ -2,3 +2,38 @@
 	font-family: 'Poiret One';
 	font-weight: 400;
 }
+
+
+.listify(@titleWidth) {
+	padding: 0 0 0 @titleWidth;
+	margin: 0 .6em .4em;
+
+	&, & li {
+		list-style: none;
+	}
+
+	li {
+		white-space: nowrap;
+		margin: 0 0 0 .4em;
+		padding: 0;
+		display: inline-block;
+
+		&.title {
+			font-weight: 700;
+			margin-left: -@titleWidth;
+			width: @titleWidth;
+		}
+
+		& + li {
+			&:after {
+				content: ",";
+			}
+
+			&:last-child {
+				&:after {
+					content: "";
+				}
+			}
+		}
+	}
+}

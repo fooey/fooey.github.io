@@ -4,16 +4,28 @@ const path = require('path');
 module.exports = function(express) {
 	var app = express();
 
+	app.locals.startTime = Date.now();
+
+
+
+	/*
+	*
+	*	config
+	*
+	*/
+
+	app.enable('case sensitive routing');
+	app.enable('strict routing');
+
 
 	/*
 	*
 	*	Views
 	*
 	*/
-	app.set('views', path.normalize(path.join(process.cwd(), 'views')));
+
+	app.set('views', './views');
 	app.set('view engine', 'jade');
-	app.set('case sensitive', true);
-	app.set('strict routing', true);
 	app.engine('jade', require('jade').__express);
 
 
@@ -45,7 +57,7 @@ module.exports = function(express) {
 
 	/*
 	*
-	*	Statics
+	*	Mime Types
 	*
 	*/
 
@@ -53,7 +65,7 @@ module.exports = function(express) {
 		'text/plain': [
 			'jade',
 			'map',
-			'html',
+			'htm',
 		]
 	});
 	express.static.mime.define({
@@ -63,28 +75,5 @@ module.exports = function(express) {
 	});
 
 
-	const serveStatic = require('serve-static');
-
-	var staticOptions = {
-		dotfiles: 'deny',
-		etag: true,
-		// index: false,
-		maxAge: '1d',
-		// redirect: true,
-	};
-
-	app.use(serveStatic('public', staticOptions));
-	app.use('/nm', serveStatic(process.cwd() + '/node_modules', staticOptions));
-	app.use('/fonts', serveStatic(process.cwd() + '/node_modules/font-awesome/fonts', staticOptions));
-	app.use('/routes', serveStatic(process.cwd() + '/routes', staticOptions));
-	app.use('/views', serveStatic(process.cwd() + '/views', staticOptions));
-
-
-
-
-
 	return app;
 }
-
-
-

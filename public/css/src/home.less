@@ -1,7 +1,7 @@
 
 
 
-#Welcome {
+#welcome {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -37,82 +37,3 @@
 
 }
 
-#Overview {
-	font-size: 10pt;
-	@media(min-width: @screen-xs-min) { font-size: 12pt; }
-	@media(min-width: @screen-md-min) { font-size: 13pt; }
-}
-
-
-#photo {
-	text-align: center;
-	margin: 0 auto;
-
-	max-width: 240px;
-	width: 180px;
-	width: 50vw;
-	padding: 0 0 2em 0;
-
-	@media(min-width: @screen-xs-min) { width: 33vw; float: right; padding: 0 0 2em 2em; }
-	@media(min-width: @screen-sm-min) { width: 25vw }
-}
-
-
-.contacts {
-	.method a {
-		display: block;
-		text-align: center;
-		font-size: 10pt;
-
-		@media(min-width: @screen-xs-min) { font-size: 12pt; }
-		@media(min-width: @screen-md-min) { font-size: 13pt; }
-
-		&:hover {
-			text-decoration: none;
-		}
-
-		.fa {
-			color: #333;
-			font-size: 32pt;
-			font-size: 10vw;
-			display: block;
-
-			&:hover {
-				color: @link-color;
-				.transition(color 150ms ease-in);
-			}
-		}
-
-	}
-}
-
-
-#Knowledge {
-	.tags {
-		font: 400 10pt/120% Roboto Condensed;
-		.list-inline {
-			padding: 0;
-			margin: 0;
-			li {
-				padding: 0;
-				& + li {
-					padding-left: .6em;
-				}
-			}
-		}
-	}
-}
-
-#Experience {
-	dt {
-		font-weight: 700;
-	}
-
-	dd {
-		padding-left: 1em;
-	}
-
-	dd + dt {
-		margin-top: .5em;
-	}
-}
