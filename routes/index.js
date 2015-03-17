@@ -2,8 +2,8 @@
 
 
 module.exports = function(app, express) {
-	require('routes/middleware.js')(app, express);
-	require('routes/statics.js')(app, express);
+	require('./middleware.js')(app, express);
+	require('./statics.js')(app, express);
 
 
 	app.get.apply(app, getRedirectRoute('/default', '/'));
