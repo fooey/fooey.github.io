@@ -1,7 +1,6 @@
 'use strict';
 
 require("babel/register");
-require('newrelic');
 
 const appPort = process.env.PORT || 3000;
 const appEnv = process.env.NODE_ENV || 'production';
@@ -14,6 +13,10 @@ let express = require('express');
 let app = require('./config/express')(express);
 
 require('./routes')(app, express);
+
+if (appEnv !== 'development') {
+	require('newrelic');
+}
 
 
 app.listen(appPort, function() {
