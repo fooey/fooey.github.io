@@ -2,31 +2,108 @@
 	h1.section-header Project Highlights
 
 
-	.row
-		.col-md-6
-			h2 Project 1
-			+lipsum()
+	.project
+		.row
+			.col-md-9
+				h2 GuildWars2 WvW Tracker
+				.projectDescription
+					p Site: <a href="http://gw2w2w.com">gw2w2w.com</a>
+					p Source Repository: <a href="https://github.com/fooey/gw2w2w-react">github.com/fooey/gw2w2w-react</a>
+					p Project I like to tear apart and redo to try new things, going through 5 or 6 versions now.
+					p Previous versions include Angular.js and various flavors of non-frameworked JS front ends and both ColdFusion and Node.js backends.
+					p The current app runs React.js with a negligiable Node backend of its own, instead relying on microservices I've spun off:
+						| <a href="http://state.gw2w2w.com">state.gw2w2w.com</a>,
+						| <a href="http://guilds.gw2w2w.com">guilds.gw2w2w.com</a>,
+						| and <a href="http://piely.net">piely.net</a>.
 
-		.col-md-6
-			h2 Project 2
-			+lipsum()
-
-
-
-	.row
-		.col-md-6
-			h2 Project 3
-			+lipsum()
-
-		.col-md-6
-			h2 Project 4
-			+lipsum()
+			.col-md-3
+				a(href="http://gw2w2w.com")
+					img.example.img-responsive.img-thumbnail(src="/img/examples/gw2w2w.png")
 
 
-mixin lipsum
-	p.indent.
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-		Nullam imperdiet ornare orci, id mollis leo consequat id.
-		Cras suscipit tincidunt sapien, in luctus dolor placerat sit amet.
-		Nunc lacinia, tortor vel elementum mattis, risus elit iaculis nibh, vitae tincidunt lectus tortor sed diam.
-		Fusce facilisis est feugiat sem faucibus congue.
+
+	.project
+		.row
+			.col-md-9
+				h2 GuildWars2 Guild Emblem Renderer
+				.projectDescription
+					p Site: <a href="http://guilds.gw2w2w.com">guilds.gw2w2w.com</a>
+					p Source Repository: <a href="https://github.com/fooey/node-gw2guilds">https://github.com/fooey/node-gw2guilds</a>
+					p Spinoff Node.js backed microservice for gw2w2w.com
+					p Generates SVG emblems for the guilds of GuildsWars2
+					p Community usage of the service generates 70k-100k requests per month
+
+			.col-md-3
+				a(href="http://guilds.gw2w2w.com")
+					img.example.img-responsive.img-thumbnail(src="/img/examples/guilds.png")
+
+
+
+	.project
+		.row
+			.col-md-9
+				h2 Piely.net
+
+				.projectDescription
+					p Site: <a href="http://www.piely.net">www.piely.net</a>
+					p Source Repository: <a href="https://github.com/fooey/piely">https://github.com/fooey/piely</a>
+					p Spin off from gw2w2w.com project.
+					p Microservice for generating SVG pie charts using simple in url configuration
+					p Front-end "builder" originally build in Angular, but ported to React for the experience
+
+			.col-md-3
+				a(href="http://www.piely.net")
+					img.example.img-responsive.img-thumbnail(src="/img/examples/piely.png")
+
+
+
+	.project
+		.row
+			.col-md-9
+				h2 Local Mechanics
+
+				.projectDescription
+					p Site: <a href="http://www.local-mechanics.com">www.local-mechanics.com</a>
+					p Source Repository: <a href="https://github.com/fooey/local-mechanics">https://github.com/fooey/local-mechanics</a>
+					p An experiment with using the same templates for the backend and frontend.
+					p It uses Lodash javascript templates on top of Express.js and relies on external API's rather than any "local" data
+
+					p Serves geo data from <a href="http://geo.api.the-ln.com/">geo.api.the-ln.com</a> (<a href="https://github.com/fooey/theln-api-geo">source</a>)
+						| and relays CityGrid data though <a href="http://geo.api.the-ln.com/">geo.api.the-ln.com</a> (<a href="https://github.com/fooey/theln-api-cg">source</a>)
+
+			.col-md-3
+				a(href="http://www.local-mechanics.com")
+					img.example.img-responsive.img-thumbnail(src="/img/examples/local-mechanics.sub.png")
+
+
+
+	.project
+		.row
+			.col-md-9
+				h2 NoSRC.net
+
+				.projectDescription
+					p Site: <a href="http://nosrc.net">nosrc.net</a>
+					p Source Repository: <a href="https://github.com/fooey/nosrc">https://github.com/fooey/nosrc</a>
+					p Ported from ColdFusion in 2014 to run on Node.js and use SVG's instead of PNG
+					p Public usage of the service generates 100k-125k requests per month
+
+			.col-md-3
+				a(href="http://nosrc.net")
+					img.example.img-responsive.img-thumbnail(src="/img/examples/nosrc.png")
+
+
+
+	.project
+		.row
+			.col-md-9
+				h2 Local Dialysis Providers
+
+				.projectDescription
+					p Site: <a href="http://local-dialysis.com/">local-dialysis.com/</a>
+					p Source Repository: <a href="https://github.com/fooey/local-dialysis">https://github.com/fooey/local-dialysis</a>
+					p Ported from ColdFusion to learn and practice with Node.js, LESS, Grunt and SQLite
+
+			.col-md-3
+				a(href="http://local-dialysis.com")
+					img.example.img-responsive.img-thumbnail(src="/img/examples/local-dialysis.sub2.png")

@@ -6989,41 +6989,6 @@ section h2 {
     width: 25vw;
   }
 }
-#knowledge .tags {
-  font: 400 9pt/140% Roboto Condensed;
-  padding: 0 0 0 6em;
-  margin: 0 .6em .4em;
-}
-#knowledge .tags,
-#knowledge .tags li {
-  list-style: none;
-}
-#knowledge .tags li {
-  white-space: nowrap;
-  margin: 0 0 0 .4em;
-  padding: 0;
-  display: inline-block;
-}
-#knowledge .tags li.title {
-  font-weight: 700;
-  margin-left: -6em;
-  width: 6em;
-}
-#knowledge .tags li + li:after {
-  content: ",";
-}
-#knowledge .tags li + li:last-child:after {
-  content: "";
-}
-#experience dt {
-  font-weight: 700;
-}
-#experience dd {
-  padding-left: 1em;
-}
-#experience dd + dt {
-  margin-top: .5em;
-}
 .contacts .method a {
   display: block;
   text-align: center;
@@ -7069,6 +7034,42 @@ section h2 {
   .contacts .method a .fa:hover {
     font-size: 180px;
   }
+}
+#knowledge .tags {
+  font: 400 9pt/140% Roboto Condensed;
+  padding: 0 0 0 6em;
+  margin: 0 .6em .4em;
+}
+#knowledge .tags,
+#knowledge .tags li {
+  list-style: none;
+}
+#knowledge .tags li {
+  white-space: nowrap;
+  margin: 0 0 0 .4em;
+  padding: 0;
+  display: inline-block;
+}
+#knowledge .tags li.title {
+  font-weight: 700;
+  margin-left: -6em;
+  width: 6em;
+}
+#knowledge .tags li + li:after {
+  content: ",";
+}
+#knowledge .tags li + li:last-child:after {
+  content: "";
+}
+#projects .project {
+  padding-bottom: 3em;
+}
+#projects .projectDescription {
+  max-width: 50em;
+  padding-left: 1em;
+}
+#projects img.example {
+  margin-top: 40px;
 }
 #welcome {
   margin: 0;

@@ -66,7 +66,8 @@ gulp.task('compile-js', [], compileJS);
 */
 
 gulp.task('watch', [], function() {
-	livereload({auto: true});
+	livereload({start: true});
+
 	gulp.watch(paths.css.src + '/**/*.less', ['compile-css']);
 	// gulp.watch(paths.js.src + '/**/*.js', ['jsmin']);
 	gulp.watch('./views/**/*.jade', livereload.changed);
