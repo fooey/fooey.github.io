@@ -7062,14 +7062,33 @@ section h2 {
   content: "";
 }
 #projects .project {
-  padding-bottom: 3em;
+  padding-bottom: 2em;
+}
+#projects .project + .project {
+  padding-top: 2em;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 #projects .projectDescription {
   max-width: 50em;
   padding-left: 1em;
 }
-#projects img.example {
-  margin-top: 40px;
+#projects figure.thumbnail {
+  margin-top: 20px;
+}
+#projects figure.thumbnail .exampleContainer {
+  max-height: 240px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+#projects figure.thumbnail .exampleContainer img {
+  width: 100%;
+}
+#projects figure.thumbnail figcaption p {
+  text-align: center;
+  font-size: 9pt;
+  line-height: 12pt;
+  margin: 0;
+  padding: 0;
 }
 #welcome {
   margin: 0;

@@ -1,7 +1,12 @@
 #projects {
 
 	.project  {
-		padding-bottom: 3em;
+		padding-bottom: 2em;
+
+		& + .project {
+			padding-top: 2em;
+			border-top: 1px solid rgba(0,0,0,0.1);
+		}
 	}
 
 	.projectDescription {
@@ -9,8 +14,25 @@
 		padding-left: 1em;
 	}
 
-	img.example {
-		margin-top: 40px;
+	figure.thumbnail {
+		margin-top: 20px;
+
+		.exampleContainer {
+			max-height: 240px;
+			overflow-y: scroll;
+			overflow-x: hidden;
+			img {
+				width: 100%;
+			}
+		}
+
+		figcaption p {
+			text-align: center;
+			font-size: 9pt;
+			line-height: 12pt;
+			margin: 0;
+			padding: 0;
+		}
 	}
 
 }
