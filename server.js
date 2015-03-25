@@ -8,7 +8,7 @@ if (appEnv !== 'development') {
 }
 
 
-require("babel/register");
+// require("babel/register");
 
 
 GLOBAL.appStartTime = Date.now();
