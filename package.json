@@ -13,7 +13,6 @@
     "moment": "^2.8.3",
     "morgan": "^1.5.2",
     "newrelic": "^1.17.3",
-    "nodetime": "^0.8.15",
     "serve-static": "^1.9.2",
     "shortid": "^2.2.1",
     "static-expiry": "0.0.10"
