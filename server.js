@@ -5,6 +5,12 @@ const appEnv = process.env.NODE_ENV || 'production';
 
 if (appEnv !== 'development') {
 	require('newrelic');
+
+	if(process.env.NODETIME_ACCOUNT_KEY) {
+		require('nodetime').profile({
+			accountKey: process.env.NODETIME_ACCOUNT_KEY,
+		});
+	}
 }
 
 
