@@ -6818,6 +6818,33 @@ h6 {
 .indent {
   text-indent: 2em;
 }
+.target {
+  position: relative;
+}
+.target a {
+  position: absolute;
+  display: block;
+  left: 0;
+  line-height: 80%;
+}
+.target a i.fa {
+  font-size: 50%;
+  font-weight: 400;
+  opacity: 0;
+  -webkit-transition: opacity 150ms ease-in;
+          transition: opacity 150ms ease-in;
+  display: inline-block;
+  vertical-align: middle;
+  padding-right: 0.4em;
+  margin-left: -1.2em;
+}
+.target a i.fa:before {
+  content: '\f0c1 ';
+}
+.target:hover a i.fa,
+.target a:hover i.fa {
+  opacity: 1;
+}
 /*!
 *
 *	app
@@ -6886,33 +6913,6 @@ section h2 {
   section h2 {
     font-size: 24pt;
   }
-}
-.target {
-  position: relative;
-}
-.target a {
-  position: absolute;
-  display: block;
-  left: 0;
-  line-height: 80%;
-}
-.target a i.fa {
-  font-size: 50%;
-  font-weight: 400;
-  opacity: 0;
-  -webkit-transition: opacity 150ms ease-in;
-          transition: opacity 150ms ease-in;
-  display: inline-block;
-  vertical-align: middle;
-  padding-right: 0.4em;
-  margin-left: -1.2em;
-}
-.target a i.fa:before {
-  content: '\f0c1 ';
-}
-.target:hover a i.fa,
-.target a:hover i.fa {
-  opacity: 1;
 }
 #overview p {
   font-size: 10pt;

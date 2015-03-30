@@ -37,48 +37,6 @@ section {
 	}
 }
 
-
-
-// based on GitHub
-.target {
-	@target-icon-width: 1.2em;
-
-	position: relative;
-	a {
-		position: absolute;
-		display: block;
-		left: 0;
-		// border: 1px solid red;
-		line-height: 80%;
-
-
-		i.fa {
-			font-size: 50%;
-			font-weight: 400;
-
-			opacity: 0;
-			transition: opacity 150ms ease-in;
-
-			display: inline-block;
-			vertical-align: middle;
-			padding-right: @target-icon-width/3;
-			margin-left: -@target-icon-width;
-
-			&:before {
-				content: '\f0c1 ';
-			}
-		}
-
-	}
-
-	&:hover a,
-	a:hover {
-		i.fa {
-			opacity: 1;
-		}
-	}
-}
-
 @import "./section.overview.less";
 @import "./section.contacts.less";
 @import "./section.knowledge.less";
