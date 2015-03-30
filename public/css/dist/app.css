@@ -6818,16 +6818,16 @@ h6 {
     font-size: .9vw;
   }
 }
-.target {
+.anchor-target {
   position: relative;
 }
-.target a {
+.anchor-target a {
   position: absolute;
   display: block;
   left: 0;
   line-height: 1;
 }
-.target a i.fa {
+.anchor-target a i.fa {
   font-size: 0%;
   font-weight: 400;
   opacity: 0;
@@ -6837,17 +6837,17 @@ h6 {
   vertical-align: middle;
   padding: 0.6em 0.6em 0.6em 0;
 }
-.target a i.fa:before {
+.anchor-target a i.fa:before {
   content: '\f0c1 ';
 }
-.target:hover a i.fa,
-.target a:hover i.fa {
+.anchor-target:hover a i.fa,
+.anchor-target a:hover i.fa {
   font-size: 50%;
   margin-left: -1.2em;
   opacity: .6;
 }
-.target:hover a i.fa:hover,
-.target a:hover i.fa:hover {
+.anchor-target:hover a i.fa:hover,
+.anchor-target a:hover i.fa:hover {
   opacity: .8;
 }
 /*!

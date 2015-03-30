@@ -12,7 +12,7 @@ module.exports = (function(){
 		let $anchor = $(`<a href="#${id}"><i class="fa"></i></a>`);
 
 		$firstHeader
-			.addClass('target')
+			.addClass('anchor-target')
 			.prepend($anchor);
 	});
 }());
