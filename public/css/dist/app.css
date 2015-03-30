@@ -6671,6 +6671,31 @@ input:focus,
 @brand-warning:         #F47C3C;
 @brand-danger:          #d9534f;
 */
+body {
+  background-color: #f8f5f0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dt,
+label {
+  font-family: 'Roboto Condensed';
+  font-weight: 300;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1;
+}
+.indent {
+  text-indent: 2em;
+}
 .navbar-default {
   margin: 0;
   min-width: 240px;
@@ -6793,31 +6818,6 @@ input:focus,
     font-size: .9vw;
   }
 }
-body {
-  background-color: #f8f5f0;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-dt,
-label {
-  font-family: 'Roboto Condensed';
-  font-weight: 300;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  line-height: 1;
-}
-.indent {
-  text-indent: 2em;
-}
 .target {
   position: relative;
 }
@@ -6825,25 +6825,30 @@ h6 {
   position: absolute;
   display: block;
   left: 0;
-  line-height: 80%;
+  line-height: 1;
 }
 .target a i.fa {
-  font-size: 50%;
+  font-size: 0%;
   font-weight: 400;
   opacity: 0;
-  -webkit-transition: opacity 150ms ease-in;
-          transition: opacity 150ms ease-in;
+  -webkit-transition: opacity 150ms ease-in, margin 150ms ease-in, font-size 150ms ease-in;
+          transition: opacity 150ms ease-in, margin 150ms ease-in, font-size 150ms ease-in;
   display: inline-block;
   vertical-align: middle;
-  padding-right: 0.4em;
-  margin-left: -1.2em;
+  padding: 0.6em 0.6em 0.6em 0;
 }
 .target a i.fa:before {
   content: '\f0c1 ';
 }
 .target:hover a i.fa,
 .target a:hover i.fa {
-  opacity: 1;
+  font-size: 50%;
+  margin-left: -1.2em;
+  opacity: .6;
+}
+.target:hover a i.fa:hover,
+.target a:hover i.fa:hover {
+  opacity: .8;
 }
 /*!
 *
