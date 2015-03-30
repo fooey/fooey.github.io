@@ -6,7 +6,7 @@
 	& {
 		background-color: @brand-info;
 		border: none;
-		.border-radius('');
+		border-radius: 0;
 	}
 
 	margin: 0;
@@ -56,11 +56,11 @@
 				@media(min-width: 1900px) { font-size: 1vw; width: 8vw }
 				@media(min-width: 2300px) { font-size: .8vw; width: 7vw }
 
-				.opacity(.8);
-				.transition(all 150ms ease-in);
+				opacity: .8;
+				transition: all 150ms ease-in;
 
 				&:hover {
-					.opacity(1);
+					opacity: 1;
 					font-size: 14pt;
 
 					@media(min-width: @grid-float-breakpoint) { font-size: 9pt; }
@@ -73,8 +73,8 @@
 			}
 
 			// &.defocus > a {
-			// 	.transition(all 100ms ease-in);
-			// 	.opacity(.6);
+			// 	transition: all 100ms ease-in;
+			// 	opacity: .6;
 			// }
 		}
 

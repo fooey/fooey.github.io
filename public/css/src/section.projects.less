@@ -12,14 +12,40 @@
 	.projectDescription {
 		max-width: 50em;
 		padding-left: 1em;
+
+		dl {
+			dt {
+				font-size: 85%;
+				font-weight: bold;
+				color: rgba(0,0,0,0.7);
+			}
+
+			dd {
+				padding-left: .75em;
+			}
+
+			dd + dt {
+				margin-top: 2em;
+			}
+
+			ul {
+				.listify(80px);
+				font-size: 75%;
+				li.title {
+					font-size: 90%;
+					font-weight: bold;
+					color: rgba(0,0,0,0.7);
+				}
+			}
+		}
 	}
 
 	figure.thumbnail {
 		margin-top: 20px;
 
 		.exampleContainer {
-			max-height: 240px;
-			overflow-y: scroll;
+			max-height: 270px;
+			overflow-y: auto;
 			overflow-x: hidden;
 			img {
 				width: 100%;

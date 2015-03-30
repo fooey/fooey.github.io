@@ -14,7 +14,7 @@ section {
 
 	.section-content {
 		font-size: inherit;
-		padding: 80px 0;
+		padding: 40px 0;
 	}
 
 	h1.section-header {
@@ -34,6 +34,48 @@ section {
 		@media(min-width: @screen-xs-min) { font-size: 4vw; }
 		@media(min-width: @screen-md-min) { font-size: 3vw; }
 		@media(min-width: @screen-lg-min) { font-size: 24pt; }
+	}
+}
+
+
+
+// based on GitHub
+.target {
+	@target-icon-width: 1.2em;
+
+	position: relative;
+	a {
+		position: absolute;
+		display: block;
+		left: 0;
+		// border: 1px solid red;
+		line-height: 80%;
+
+
+		i.fa {
+			font-size: 50%;
+			font-weight: 400;
+
+			opacity: 0;
+			transition: opacity 150ms ease-in;
+
+			display: inline-block;
+			vertical-align: middle;
+			padding-right: @target-icon-width/3;
+			margin-left: -@target-icon-width;
+
+			&:before {
+				content: '\f0c1 ';
+			}
+		}
+
+	}
+
+	&:hover a,
+	a:hover {
+		i.fa {
+			opacity: 1;
+		}
 	}
 }
 
