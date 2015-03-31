@@ -7,11 +7,10 @@ module.exports = (function(){
 		let $el = $(el);
 		let id = $el.attr('id');
 
-		let $headers = $(':header', el);
-		let $firstHeader = $($headers[0]);
-		let $anchor = $(`<a href="#${id}"><i class="fa"></i></a>`);
+		let $header = $el.find(':header:first');
+		let $anchor = $(`<a href="#${id}"><i class="fa" /></a>`);
 
-		$firstHeader
+		$header
 			.addClass('anchor-target')
 			.prepend($anchor);
 	});
