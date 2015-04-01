@@ -1,14 +1,14 @@
 'use strict';
+require("babel/register");
 
 const appPort = process.env.PORT || 3000;
 const appEnv = process.env.NODE_ENV || 'production';
 
-if (appEnv !== 'development') {
-	require('newrelic');
-}
+// if (appEnv !== 'development') {
+// 	require('newrelic');
+// }
 
 
-require("babel/register");
 
 
 GLOBAL.appStartTime = Date.now();
