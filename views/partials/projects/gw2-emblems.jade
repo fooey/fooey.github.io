@@ -4,11 +4,34 @@
 			h2 GuildWars2 Guild Emblem Renderer
 
 			.projectDescription
-				p Site: <a href="http://guilds.gw2w2w.com">guilds.gw2w2w.com</a>
-				p Source Repository: <a href="https://github.com/fooey/node-gw2guilds">https://github.com/fooey/node-gw2guilds</a>
-				p Spinoff microservice for gw2w2w.com using Node.js backed
-				p Generates SVG emblems for the guilds of GuildsWars2
-				p Community usage of the service generates 70k-100k requests per month
+				dl
+					dt Link
+					dd <a href="http://guilds.gw2w2w.com">guilds.gw2w2w.com</a>
+
+					dt Source
+					dd <a href="https://github.com/fooey/node-gw2guilds">github.com/fooey/node-gw2guilds</a>
+
+					dt What
+					dd
+						p Public service which allows consumers to easily <a href="http://guilds.gw2w2w.com/guilds/arenanet/256.svg">hotlink</a> SVG versions of the emblems of guilds in GuildWars2.
+						p Structurally, the images work like the popular placeholder image services with the goal of making it as easy as possible to use an image.
+						p You can use either the name of the guild
+						p: small: code &lt;img src="http://guilds.gw2w2w.com/guilds/${guildName}/256.svg" width=256 height=256 /&gt;
+						p Or the GuildID used by ArenaNet's API
+						p: small: code &lt;img src="http://guilds.gw2w2w.com/${UUID}.svg" width=256 height=256 /&gt;
+
+					dt Why
+					dd
+						p Project was originally part of the main gw2w2w.com project, but became spun off to be a stand alone service.
+
+					dt Tech
+					dd
+						ul.inline-list
+							li SVG
+							li: abbr(title="SVG Optimizer") SVGO
+							li API
+							li Microservce
+							li Express.js
 
 		.col-md-4
 			figure.thumbnail

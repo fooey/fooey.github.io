@@ -3381,6 +3381,40 @@ input:focus,
 *
 !*/
 /*
+*	Lists
+*/
+.comma-list li {
+  list-style: none;
+  white-space: nowrap;
+  margin: 0 0 0 .5em;
+  padding: 0;
+  display: inline-block;
+}
+.comma-list li:after {
+  content: ",";
+}
+.comma-list li:last-child:after {
+  content: "";
+}
+.inline-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.inline-list li {
+  list-style: none;
+  white-space: nowrap;
+  margin: 0 0 0 .5em;
+  padding: 0;
+  display: inline-block;
+}
+.inline-list li:after {
+  content: ",";
+}
+.inline-list li:last-child:after {
+  content: "";
+}
+/*
 *	Variables
 */
 /*!
@@ -3764,16 +3798,20 @@ section h2 {
   font: 400 9pt/140% Roboto Condensed;
   padding: 0 0 0 6em;
   margin: 0 .6em .4em;
-}
-#knowledge .tags,
-#knowledge .tags li {
   list-style: none;
 }
 #knowledge .tags li {
+  list-style: none;
   white-space: nowrap;
   margin: 0 0 0 .5em;
   padding: 0;
   display: inline-block;
+}
+#knowledge .tags li:after {
+  content: ",";
+}
+#knowledge .tags li:last-child:after {
+  content: "";
 }
 #knowledge .tags li.title {
   margin-left: -6em;
@@ -3782,10 +3820,7 @@ section h2 {
   font-family: 'Roboto Condensed';
   font-weight: 700;
 }
-#knowledge .tags li + li:after {
-  content: ",";
-}
-#knowledge .tags li + li:last-child:after {
+#knowledge .tags li.title:after {
   content: "";
 }
 #projects .project {
@@ -3810,36 +3845,36 @@ section h2 {
 #projects .projectDescription dl dd + dt {
   margin-top: 2em;
 }
-#projects .projectDescription dl ul {
+#projects .projectDescription ul.tags {
   padding: 0 0 0 80px;
   margin: 0 .6em .4em;
-  font-size: 75%;
-}
-#projects .projectDescription dl ul,
-#projects .projectDescription dl ul li {
   list-style: none;
 }
-#projects .projectDescription dl ul li {
+#projects .projectDescription ul.tags li {
+  list-style: none;
   white-space: nowrap;
   margin: 0 0 0 .5em;
   padding: 0;
   display: inline-block;
 }
-#projects .projectDescription dl ul li.title {
+#projects .projectDescription ul.tags li:after {
+  content: ",";
+}
+#projects .projectDescription ul.tags li:last-child:after {
+  content: "";
+}
+#projects .projectDescription ul.tags li.title {
   margin-left: -80px;
   width: 80px;
   text-align: right;
   font-family: 'Roboto Condensed';
   font-weight: 700;
 }
-#projects .projectDescription dl ul li + li:after {
-  content: ",";
-}
-#projects .projectDescription dl ul li + li:last-child:after {
+#projects .projectDescription ul.tags li.title:after {
   content: "";
 }
-#projects .projectDescription dl ul li.title {
-  font-size: 90%;
+#projects .projectDescription ul.tags li.title {
+  font-size: 70%;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.7);
 }
