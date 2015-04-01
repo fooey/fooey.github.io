@@ -1,1 +1,1 @@
-web: iojs --harmony
+web: node --harmony
