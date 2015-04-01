@@ -6,7 +6,7 @@
     "url": "git://github.com/fooey/me.git"
   },
   "engines": {
-    "iojs": "^1.4.1",
+    "iojs": "^1.6.3",
     "npm": "^2.7"
   },
   "dependencies": {
