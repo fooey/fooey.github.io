@@ -8,8 +8,11 @@ module.exports = function(options, livereload, cb) {
 	var called = false;
 
 	var config = _.merge({
+		"execMap": {
+			"js": "iojs --harmony",
+			// "js": "node --harmony",
+		},
 		script: './server.js',
-		nodeArgs: ['--harmony'],
 		ext: 'js,jade',
 		ignore: [
 			'.git/**',

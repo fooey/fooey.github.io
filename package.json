@@ -5,7 +5,12 @@
     "type": "git",
     "url": "git://github.com/fooey/me.git"
   },
+  "engines": {
+    "iojs": "^1.4.1",
+    "npm": "^2.7"
+  },
   "dependencies": {
+    "babel": "^4.7.16",
     "compression": "^1.4.3",
     "errorhandler": "^1.3.5",
     "express": "^4.12.3",
@@ -17,13 +22,8 @@
     "shortid": "^2.2.1",
     "static-expiry": "0.0.10"
   },
-  "engines": {
-    "node": "^0.12",
-    "npm": "^2.7"
-  },
   "devDependencies": {
     "async": "^0.9.0",
-    "babel": "^4.7.16",
     "babelify": "^5.0.4",
     "bootstrap": "^3.3.4",
     "bootswatch": "^3.3.4",

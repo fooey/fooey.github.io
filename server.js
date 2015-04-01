@@ -8,7 +8,7 @@ if (appEnv !== 'development') {
 }
 
 
-// require("babel/register");
+require("babel/register");
 
 
 GLOBAL.appStartTime = Date.now();
@@ -24,9 +24,15 @@ require('./routes')(app, express);
 app.listen(appPort, function() {
 	console.log('');
 	console.log('**************************************************');
-	console.log('%d Express server started', GLOBAL.appStartTime);
-	console.log('%d Port: %d', GLOBAL.appStartTime, appPort);
-	console.log('%d Mode: %s', GLOBAL.appStartTime, appEnv);
+	console.log('Express server started');
+	console.log('Time: %d', GLOBAL.appStartTime);
+	console.log('Port: %d', appPort);
+	console.log('Mode: %s', appEnv);
+	console.log('PID: %s', process.pid);
+	console.log('Platform: %s', process.platform);
+	console.log('Arch: %s', process.arch);
+	console.log('Node: %s', process.versions.node);
+	console.log('V8: %s', process.versions.v8);
 	console.log('**************************************************');
 	console.log('');
 });
