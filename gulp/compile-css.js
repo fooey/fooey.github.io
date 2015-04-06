@@ -25,10 +25,10 @@ module.exports = function(paths, livereload) {
 
 		var less = require('gulp-less');
 	    var autoprefixer = require('gulp-autoprefixer');
-		var cleanCSS = require("clean-css");
+		var CleanCSS = require("clean-css");
 
-		var minify = vinylMap(function (buff, filename) {
-			return new cleanCSS({
+		var minify = vinylMap(function (buff) {
+			return new CleanCSS({
 				advanced: true,
 				aggressiveMerging: true,
 				keepBreaks: false,
