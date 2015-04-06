@@ -13,10 +13,34 @@ h1, h2, h3, h4, h5, h6 {
 	line-height: 1;
 }
 
+h1 {
+	font-weight: 300;
+	margin: 0 0 .25em 0;
+	padding: 0 0 .25em 0;
+
+	font-size: 18pt; font-size: 6vw;
+	@media(max-width: @screen-xs-min) { font-size: 16pt; }
+	@media(min-width: @screen-md-min) { font-size: 42pt; }
+}
+
+h2 {
+	padding: 0 0 .25em 0;
+	font-size: 16pt; font-size: 4.5vw;
+	@media(max-width: @screen-xs-min) { font-size: 14pt; }
+	@media(min-width: @screen-md-min) { font-size: 24pt; }
+}
+
+h3 {
+	padding: 0 0 .25em 0;
+	font-size: 14pt; font-size: 3vw;
+	@media(max-width: @screen-xs-max) { font-size: 12pt; }
+	@media(min-width: @screen-md-min) { font-size: 20pt; }
+}
+
 
 
 .indent {
-	text-indent: 2em;
+	text-indent: 1.5em;
 }
 
 

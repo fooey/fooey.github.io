@@ -3444,8 +3444,55 @@ h5,
 h6 {
   line-height: 1;
 }
+h1 {
+  font-weight: 300;
+  margin: 0 0 .25em 0;
+  padding: 0 0 .25em 0;
+  font-size: 18pt;
+  font-size: 6vw;
+}
+@media (max-width: 480px) {
+  h1 {
+    font-size: 16pt;
+  }
+}
+@media (min-width: 992px) {
+  h1 {
+    font-size: 42pt;
+  }
+}
+h2 {
+  padding: 0 0 .25em 0;
+  font-size: 16pt;
+  font-size: 4.5vw;
+}
+@media (max-width: 480px) {
+  h2 {
+    font-size: 14pt;
+  }
+}
+@media (min-width: 992px) {
+  h2 {
+    font-size: 24pt;
+  }
+}
+h3 {
+  padding: 0 0 .25em 0;
+  font-size: 14pt;
+  font-size: 3vw;
+}
+@media (max-width: 767px) {
+  h3 {
+    font-size: 12pt;
+  }
+}
+@media (min-width: 992px) {
+  h3 {
+    font-size: 20pt;
+  }
+}
 .indent {
-  text-indent: 2em;
+  text-indent: 1.5em;
 }
 .navbar-default {
   margin: 0;
@@ -3628,43 +3675,6 @@ section .section-content {
   font-size: inherit;
   padding: 40px 0;
 }
-section h1.section-header {
-  font-weight: 300;
-  margin: 0 0 .25em 0;
-  padding: 0 0 .25em 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  font-size: 16pt;
-}
-@media (min-width: 480px) {
-  section h1.section-header {
-    font-size: 6vw;
-  }
-}
-@media (min-width: 1200px) {
-  section h1.section-header {
-    font-size: 42pt;
-  }
-}
-section h2 {
-  padding: 0 0 .25em 0;
-  font-size: 14pt;
-  font-size: 6vw;
-}
-@media (min-width: 480px) {
-  section h2 {
-    font-size: 4vw;
-  }
-}
-@media (min-width: 992px) {
-  section h2 {
-    font-size: 3vw;
-  }
-}
-@media (min-width: 1200px) {
-  section h2 {
-    font-size: 24pt;
-  }
-}
 #welcome {
   margin: 0;
   padding: 0;
@@ -3681,6 +3691,7 @@ section h2 {
 #welcome header h2 {
   padding: 0;
   margin: 0;
+  border: none;
 }
 #welcome header h1 {
   font-family: 'Poiret One';
