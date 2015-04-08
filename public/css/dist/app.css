@@ -3491,7 +3491,10 @@ h3 {
     font-size: 20pt;
   }
 }
-.indent {
+p {
+  max-width: 48em;
+}
+p.indent {
   text-indent: 1.5em;
 }
 .navbar-default {
@@ -3842,7 +3845,6 @@ section .section-content {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 #projects .projectDescription {
-  max-width: 50em;
   padding-left: 1em;
 }
 #projects .projectDescription dl dt {
