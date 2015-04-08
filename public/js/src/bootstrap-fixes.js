@@ -1,9 +1,11 @@
 'use strict';
 
-
-// prepend target links to headers
 module.exports = (function(){
-	$('#navbar').on('click', '.navbar-collapse.in a', () => {
-		$(".navbar-toggle").click();
-	});
+
+	// // collapse the hamburger menu when something is clicked
+	// $('#navbar')
+	// 	.on('click', '.navbar-collapse.in a', () => {
+	// 		$(".navbar-toggle").click();
+	// 	});
+
 }());
