@@ -5,13 +5,13 @@
 module.exports = (function(){
   $(':header[id], [id]:has(:header)').each((i, el) => {
     let $el = $(el);
-    let id = $el.attr('id');
-
-    let $header = ($el.is(':header'))
-      ? $el
-      : $el.find(':header:first');
+    let id  = $el.attr('id');
 
     let $anchor = $(`<a href="#${id}"><i class="fa" /></a>`);
+    let $header = ($el.is(':header'))
+                    ? $el
+                    : $el.find(':header:first');
+
 
     $header
       .addClass('anchor-target')

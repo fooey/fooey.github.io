@@ -10,7 +10,6 @@ module.exports = function(options, livereload, cb) {
   var config = _.merge({
     "execMap": {
       "js": "iojs",
-      // "js": "node --harmony",
     },
     script: './server.js',
     ext: 'js,jade',
@@ -25,6 +24,7 @@ module.exports = function(options, livereload, cb) {
     env: {
       PORT: '3000',
       NODE_PATH: './',
+      NODE_ENV: 'production',
     },
 
     delay: 200,

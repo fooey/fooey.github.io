@@ -16,7 +16,7 @@ function nospam(selector) {
 
 
 function getAddr() {
-  const src = '@ jason rushton com .'.split(' ');
+  const src  = '@ jason rushton com .'.split(' ');
   const addr = [src[1], src[0], src[1], src[2], src[4], src[3]].join('');
 
   return addr;

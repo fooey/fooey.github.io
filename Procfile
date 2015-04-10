@@ -1,1 +1,1 @@
-web: node --harmony
+web: node
