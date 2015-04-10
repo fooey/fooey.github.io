@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
-var gulp = require('gulp');
+var gulp  = require('gulp');
 var gutil = require('gulp-util');
 
-var _ = require('lodash');
+var _     = require('lodash');
 
 var livereload = require('gulp-livereload');
 
@@ -11,7 +11,7 @@ var livereload = require('gulp-livereload');
 
 /*
 *
-*	paths
+* paths
 *
 */
 
@@ -20,12 +20,12 @@ paths.public = './public';
 
 paths.css = {};
 paths.css.base = paths.public + '/css';
-paths.css.src = paths.css.base + '/src';
+paths.css.src  = paths.css.base + '/src';
 paths.css.dist = paths.css.base + '/dist';
 
 paths.js = {};
 paths.js.base = paths.public + '/js';
-paths.js.src = paths.js.base + '/src';
+paths.js.src  = paths.js.base + '/src';
 paths.js.dist = paths.js.base + '/dist';
 
 
@@ -35,7 +35,7 @@ paths.js.dist = paths.js.base + '/dist';
 
 /*
 *
-*	CSS
+* CSS
 *
 */
 
@@ -49,7 +49,7 @@ gulp.task('compile-css', [], compileCSS);
 
 /*
 *
-*	JS
+* JS
 *
 */
 
@@ -61,16 +61,16 @@ gulp.task('compile-js', [], compileJS);
 
 /*
 *
-*	System
+* System
 *
 */
 
 gulp.task('watch', [], function() {
-	livereload({start: true});
+  livereload({start: true});
 
-	gulp.watch(paths.css.src + '/**/*.less', ['compile-css']);
-	// gulp.watch(paths.js.src + '/**/*.js', ['jsmin']);
-	gulp.watch('./views/**/*.jade', livereload.changed);
+  gulp.watch(paths.css.src + '/**/*.less', ['compile-css']);
+  // gulp.watch(paths.js.src + '/**/*.js', ['jsmin']);
+  gulp.watch('./views/**/*.jade', livereload.changed);
 });
 
 
@@ -78,18 +78,18 @@ gulp.task('watch', [], function() {
 
 /*
 *
-*	nodemon
+* nodemon
 *
 */
 
 var nodemon = require('./gulp/nodemon');
 
 gulp.task('nodemon', function(cb) {
-	return nodemon({
-		env: {
-			NODE_ENV: 'development',
-		},
-	}, livereload, cb);
+  return nodemon({
+    env: {
+      NODE_ENV: 'development',
+    },
+  }, livereload, cb);
 });
 
 
@@ -98,7 +98,7 @@ gulp.task('nodemon', function(cb) {
 
 /*
 *
-*	Tasks Wrappers
+* Tasks Wrappers
 *
 */
 

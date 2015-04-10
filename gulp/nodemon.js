@@ -1,44 +1,45 @@
-'use strict';
+"use strict";
 
 var _ = require('lodash');
 var nodemon = require('gulp-nodemon');
 
 
 module.exports = function(options, livereload, cb) {
-	var called = false;
+  var called = false;
 
-	var config = _.merge({
-		"execMap": {
-			"js": "iojs --harmony",
-			// "js": "node --harmony",
-		},
-		script: './server.js',
-		ext: 'js,jade',
-		ignore: [
-			'.git/**',
-			'gulpfile.js',
+  var config = _.merge({
+    "execMap": {
+      "js": "iojs",
+      // "js": "node --harmony",
+    },
+    script: './server.js',
+    ext: 'js,jade',
+    ignore: [
+      '.git/**',
+      'gulpfile.js',
 
-			'node_modules/**',
-			'public/**',
-		],
-		env: {
-			PORT: '3000',
-			NODE_PATH: './',
-		},
+      'node_modules/**',
+      'public/**',
+      'gulp/**',
+    ],
+    env: {
+      PORT: '3000',
+      NODE_PATH: './',
+    },
 
-		delay: 200,
-	}, options);
+    delay: 200,
+  }, options);
 
 
-	return nodemon(config)
-		.on('start', function() {
-			if (!called) {
-				called = true;
-				cb();
-			}
-		})
-		.on('restart', function() {
-			console.log('restarted!');
-			livereload();
-		});
+  return nodemon(config)
+    .on('start', function() {
+      if (!called) {
+        called = true;
+        cb();
+      }
+    })
+    .on('restart', function() {
+      console.log('restarted!');
+      livereload();
+    });
 };

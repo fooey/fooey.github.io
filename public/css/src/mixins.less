@@ -1,56 +1,56 @@
 .script(){
-	font-family: 'Poiret One';
-	font-weight: 400;
+  font-family: 'Poiret One';
+  font-weight: 400;
 }
 
 
 /*
-*	Lists
+* Lists
 */
 
 .comma-list {
-	li {
-		list-style: none;
-		white-space: nowrap;
-		margin: 0 0 0 .5em;
-		padding: 0;
-		display: inline-block;
+  li {
+    list-style: none;
+    white-space: nowrap;
+    margin: 0 0 0 .5em;
+    padding: 0;
+    display: inline-block;
 
-		&:after {
-			content: ",";
-		}
-		&:last-child {
-			&:after {
-				content: "";
-			}
-		}
-	}
+    &:after {
+      content: ",";
+    }
+    &:last-child {
+      &:after {
+        content: "";
+      }
+    }
+  }
 }
 
 .listify(@titleWidth) {
-	padding: 0 0 0 @titleWidth;
-	margin: 0 .6em .4em;
-	list-style: none;
+  padding: 0 0 0 @titleWidth;
+  margin: 0 .6em .4em;
+  list-style: none;
 
-	.comma-list();
+  .comma-list();
 
-	li.title {
-		margin-left: -@titleWidth;
-		width: @titleWidth;
-		text-align: right;
-		font-family: 'Roboto Condensed';
-		font-weight: 700;
+  li.title {
+    margin-left: -@titleWidth;
+    width: @titleWidth;
+    text-align: right;
+    font-family: 'Roboto Condensed';
+    font-weight: 700;
 
-		&:after {
-			content: "";
-		}
-	}
+    &:after {
+      content: "";
+    }
+  }
 }
 
 .inline-list {
-	padding: 0;
-	margin: 0;
-	list-style: none;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 
-	.comma-list();
+  .comma-list();
 }
