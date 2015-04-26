@@ -5,79 +5,80 @@
 
 doctype html
 html(lang="en")
-  head
-    meta(charset="utf-8")
-    meta(http-equiv="X-UA-Compatible" content="IE=edge")
-    meta(name="viewport" content="width=device-width, initial-scale=1")
+    head
+        meta(charset="utf-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
 
-    title= metaTitle
-    meta(name="description" content=metaDescription)
+        title= metaTitle
+        meta(name="description" content=metaDescription)
 
-    if (canonical)
-      link(rel="canonical", href=canonical)
+        if (canonical)
+            link(rel="canonical", href=canonical)
 
-    link(rel="icon", href="/img/curlies.png")
-    link(rel="shortcut icon", href="/img/curlies.png")
-    link(rel="apple-touch-icon", href="/img/curlies.png")
+        link(rel="icon", href="/img/curlies.png")
+        link(rel="shortcut icon", href="/img/curlies.png")
+        link(rel="apple-touch-icon", href="/img/curlies.png")
 
-    meta(name="theme-color", content="#00bce3")
+        meta(name="theme-color", content="#00bce3")
 
-    meta(property="og:image", content=protohost + "/img/JasonRushton-squared-240.jpg")
-    //- meta(property="og:url", content=protohost + req.originalUrl)
-    meta(property="og:title", content=metaTitle)
-    meta(property="og:description", content=metaDescription)
+        meta(property="og:image", content=protohost + "/img/JasonRushton-squared-240.jpg")
+        //- meta(property="og:url", content=protohost + req.originalUrl)
+        meta(property="og:title", content=metaTitle)
+        meta(property="og:description", content=metaDescription)
 
-    link(href="http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic|Roboto+Condensed:300italic,400italic,700italic,400,300,700|Poiret+One:400|Source+Code+Pro:200,300,400,500,600,700,900" rel="stylesheet")
-    link(href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet")
+        link(href="http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic|Roboto+Condensed:300italic,400italic,700italic,400,300,700|Poiret+One:400|Source+Code+Pro:200,300,400,500,600,700,900" rel="stylesheet")
+        link(href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet")
 
-    if (process.env.NODE_ENV === 'development')
-      link(href="/css/dist/app.css" rel="stylesheet")
-    else
-      link(href="/css/dist/app.min.css" rel="stylesheet")
-  body
+        if (process.env.NODE_ENV === 'development')
+            link(href="/css/dist/app.css" rel="stylesheet")
+        else
+            link(href="/css/dist/app.min.css" rel="stylesheet")
+    body
 
-    nav#navbar.navbar.navbar-default
-      .container-fluid
-        .navbar-header
-          button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#navbar-collapse")
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
+        nav#navbar.navbar.navbar-default
+            .container-fluid
+                .navbar-header
+                    button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#navbar-collapse")
+                        span.sr-only Toggle navigation
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
 
-          a.navbar-brand(href="/") Jason Rushton
+                    a.navbar-brand(href="/") Jason Rushton
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        #navbar-collapse.collapse.navbar-collapse
-          ul.nav.navbar-nav.navbar-right
-            li: a(href="/#overview") Overview
-            li: a(href="/#contact") Contact
-            li: a(href="/#knowledge") Knowledge
-            li: a(href="/#projects") Projects
-            //- li: a(href="/#experience") Experience
-            li: a(href="/resume/JasonRushton.docx")
-              i.fa.fa-download
-              |  Résumé
-
-
-
-    block content
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                #navbar-collapse.collapse.navbar-collapse
+                    ul.nav.navbar-nav.navbar-right
+                        li: a(href="/#overview") Overview
+                        li: a(href="/#contact") Contact
+                        li: a(href="/#knowledge") Knowledge
+                        li: a(href="/#projects") Projects
+                        //- li: a(href="/#experience") Experience
+                        li: a(href="/resume/JasonRushton.docx")
+                            i.fa.fa-download
+                            |  Résumé
 
 
 
-    script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js")
-    script(src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js")
-    //- script(src="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js")
+        block content
 
-    if (process.env.NODE_ENV === 'development')
-      script(src="/js/dist/app.js")
-    else
-      script(src="/js/dist/app.min.js")
 
-    script.
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-51384-39', 'auto');
-      ga('send', 'pageview');
+
+        script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js")
+        script(src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/3.7.0/lodash.min.js")
+        script(src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js")
+        //- script(src="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js")
+
+        if (process.env.NODE_ENV === 'development')
+            script(src="/js/dist/app.js")
+        else
+            script(src="/js/dist/app.min.js")
+
+        script.
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-51384-39', 'auto');
+            ga('send', 'pageview');
