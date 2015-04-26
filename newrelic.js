@@ -5,5 +5,5 @@
  * description of configuration variables and their potential values.
  */
 exports.config = {
-  NEW_RELIC_NO_CONFIG_FILE: true,
+    NEW_RELIC_NO_CONFIG_FILE: true,
 }

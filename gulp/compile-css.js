@@ -21,36 +21,36 @@ var CleanCSS     = require("clean-css");
 
 
 module.exports = function(paths, livereload) {
-  return function() {
-    var src  = paths.css.src + '/app.less';
-    var dest = paths.css.dist;
+    return function() {
+        var src  = paths.css.src + '/app.less';
+        var dest = paths.css.dist;
 
-    var versionHash = "~" + require('shortid').generate() + "~";
+        var versionHash = "~" + require('shortid').generate() + "~";
 
-    var minify = vinylMap(function (buff) {
-      return new CleanCSS({
-        advanced: true,
-        aggressiveMerging: true,
-        keepBreaks: false,
-        shorthandCompacting: true,
-        rebase: false,
-        debug: false,
-      }).minify(buff.toString()).styles;
-    });
+        var minify = vinylMap(function (buff) {
+            return new CleanCSS({
+                advanced: true,
+                aggressiveMerging: true,
+                keepBreaks: false,
+                shorthandCompacting: true,
+                rebase: false,
+                debug: false,
+            }).minify(buff.toString()).styles;
+        });
 
-    var stream = gulp
-      .on('error', gutil.log.bind(gutil, 'Less Error'))
-      .src(src)
-      .pipe(less())
-      .pipe(replace('${VERSION}', versionHash))
-      .pipe(autoprefixer())
-      .pipe(gulp.dest(dest))
-      .pipe(minify)
-      .pipe(rename({suffix: '.min'}))
-      .pipe(gulp.dest(dest))
+        var stream = gulp
+            .on('error', gutil.log.bind(gutil, 'Less Error'))
+            .src(src)
+            .pipe(less())
+            .pipe(replace('${VERSION}', versionHash))
+            .pipe(autoprefixer())
+            .pipe(gulp.dest(dest))
+            .pipe(minify)
+            .pipe(rename({suffix: '.min'}))
+            .pipe(gulp.dest(dest))
 
-      .pipe(livereload());
+            .pipe(livereload());
 
-    return stream;
-  };
+        return stream;
+    };
 };

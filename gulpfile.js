@@ -66,11 +66,11 @@ gulp.task('compile-js', [], compileJS);
 */
 
 gulp.task('watch', [], function() {
-  livereload({start: true});
+    livereload({start: true});
 
-  gulp.watch(paths.css.src + '/**/*.less', ['compile-css']);
-  // gulp.watch(paths.js.src + '/**/*.js', ['jsmin']);
-  gulp.watch('./views/**/*.jade', livereload.changed);
+    gulp.watch(paths.css.src + '/**/*.less', ['compile-css']);
+    // gulp.watch(paths.js.src + '/**/*.js', ['jsmin']);
+    gulp.watch('./views/**/*.jade', livereload.changed);
 });
 
 
@@ -85,19 +85,19 @@ gulp.task('watch', [], function() {
 var nodemon = require('./gulp/nodemon');
 
 gulp.task('nodemon', function(cb) {
-  return nodemon({env: {
-    NODE_ENV: 'development'
-  }}, livereload, cb);
+    return nodemon({env: {
+        NODE_ENV: 'development'
+    }}, livereload, cb);
 });
 gulp.task('nodemon-prod', function(cb) {
-  return nodemon({env: {
-    NODE_ENV: 'production',
-    NEW_RELIC_NO_CONFIG_FILE: true,
-    NEW_RELIC_LICENSE_KEY: null,
-    NEW_RELIC_APP_NAME: ['jasonrushton.com'],
-    NEW_RELIC_LOG: 'stdout',
-    NEW_RELIC_LOG_LEVEL: 'info',
-  }}, livereload, cb);
+    return nodemon({env: {
+        NODE_ENV: 'production',
+        NEW_RELIC_NO_CONFIG_FILE: true,
+        NEW_RELIC_LICENSE_KEY: null,
+        NEW_RELIC_APP_NAME: ['jasonrushton.com'],
+        NEW_RELIC_LOG: 'stdout',
+        NEW_RELIC_LOG_LEVEL: 'info',
+    }}, livereload, cb);
 });
 
 
