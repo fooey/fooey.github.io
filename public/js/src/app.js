@@ -1,9 +1,11 @@
 "use strict";
-require('babel/polyfill');
+// require('babel/polyfill');
 
 $(function() {
     require('./nospam')('.nospam-email-address');
     require('./header-anchors');
     require('./bootstrap-fixes');
-    require('./welcome-parallax');
+
+    const paraFade = require('./para-fade');
+    paraFade('#welcome', 'header');
 });
