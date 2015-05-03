@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
 
 // prepend target links to headers
-module.exports = (function(){
+module.exports = (function() {
     $(':header[id], [id]:has(:header)').each((i, el) => {
         let $el = $(el);
         let id  = $el.attr('id');

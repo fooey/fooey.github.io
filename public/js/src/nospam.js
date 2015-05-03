@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 function nospam(selector) {
     const addr = getAddr();
@@ -8,7 +8,7 @@ function nospam(selector) {
 
         $el.replaceWith($('<a>', {
             href: (`mailto:${addr}`),
-            html: $el.html()
+            html: $el.html(),
         }));
     });
 }

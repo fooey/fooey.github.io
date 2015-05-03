@@ -1,4 +1,5 @@
-"use strict";
+'use strict';
+
 // require('babel/polyfill');
 
 $(function() {

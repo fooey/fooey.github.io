@@ -1,9 +1,12 @@
-"use strict";
+'use strict';
+
+// jscs:disable esnext
+// jscs:disable disallowKeywords
 
 var gulp  = require('gulp');
-var gutil = require('gulp-util');
+// var gutil = require('gulp-util');
 
-var _     = require('lodash');
+// var _     = require('lodash');
 
 var livereload = require('gulp-livereload');
 
@@ -85,19 +88,25 @@ gulp.task('watch', [], function() {
 var nodemon = require('./gulp/nodemon');
 
 gulp.task('nodemon', function(cb) {
-    return nodemon({env: {
-        NODE_ENV: 'development'
-    }}, livereload, cb);
+    var options = {
+        env: {
+            NODE_ENV: 'development',
+        },
+    };
+    return nodemon(options, livereload, cb);
 });
 gulp.task('nodemon-prod', function(cb) {
-    return nodemon({env: {
-        NODE_ENV: 'production',
-        NEW_RELIC_NO_CONFIG_FILE: true,
-        NEW_RELIC_LICENSE_KEY: null,
-        NEW_RELIC_APP_NAME: ['jasonrushton.com'],
-        NEW_RELIC_LOG: 'stdout',
-        NEW_RELIC_LOG_LEVEL: 'info',
-    }}, livereload, cb);
+    var options = {
+        env: {
+            NODE_ENV: 'production',
+            NEW_RELIC_NO_CONFIG_FILE: true,
+            NEW_RELIC_LICENSE_KEY: null,
+            NEW_RELIC_APP_NAME: ['jasonrushton.com'],
+            NEW_RELIC_LOG: 'stdout',
+            NEW_RELIC_LOG_LEVEL: 'info',
+        },
+    };
+    return nodemon(options, livereload, cb);
 });
 
 
@@ -111,7 +120,7 @@ gulp.task('nodemon-prod', function(cb) {
 */
 
 
-gulp.task('dev', ['default'], function(cb) {});
-gulp.task('default', ['watch', 'compile-css', 'compile-js', 'nodemon'], function(cb) {});
+gulp.task('dev', ['default'], function(cb) {cb()});
+gulp.task('default', ['watch', 'compile-css', 'compile-js', 'nodemon'], function(cb) {cb()});
 
-gulp.task('prod', ['watch', 'compile-css', 'compile-js', 'nodemon-prod'], function(cb) {});
+gulp.task('prod', ['watch', 'compile-css', 'compile-js', 'nodemon-prod'], function(cb) {cb()});

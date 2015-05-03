@@ -1,4 +1,7 @@
-"use strict";
+'use strict';
+
+// jscs:disable esnext
+// jscs:disable disallowKeywords
 
 var _ = require('lodash');
 var nodemon = require('gulp-nodemon');
@@ -8,8 +11,8 @@ module.exports = function(options, livereload, cb) {
     var called = false;
 
     var config = _.merge({
-        "execMap": {
-            "js": "iojs",
+        execMap: {
+            js: 'iojs',
         },
         script: './server.js',
         ext: 'js,jade',

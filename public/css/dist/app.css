@@ -3838,10 +3838,10 @@ section .section-content {
   content: "";
 }
 #projects .project {
-  padding-bottom: 2em;
+  padding-bottom: 4em;
 }
 #projects .project + .project {
-  padding-top: 2em;
+  padding-top: 4em;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 #projects .projectDescription {

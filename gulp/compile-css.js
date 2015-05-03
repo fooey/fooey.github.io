@@ -1,4 +1,7 @@
-"use strict";
+'use strict';
+
+// jscs:disable esnext
+// jscs:disable disallowKeywords
 
 var gulp         = require('gulp');
 var gutil        = require('gulp-util');
@@ -6,15 +9,15 @@ var gutil        = require('gulp-util');
 
 var rename       = require('gulp-rename');
 var replace      = require('gulp-replace');
-var sourcemaps   = require('gulp-sourcemaps');
+// var sourcemaps   = require('gulp-sourcemaps');
 
-var vinylBuffer  = require('vinyl-buffer');
+// var vinylBuffer  = require('vinyl-buffer');
 var vinylMap     = require('vinyl-map');
-var vinylSource  = require('vinyl-source-stream');
+// var vinylSource  = require('vinyl-source-stream');
 
 var less         = require('gulp-less');
 var autoprefixer = require('gulp-autoprefixer');
-var CleanCSS     = require("clean-css");
+var CleanCSS     = require('clean-css');
 
 
 
@@ -25,9 +28,9 @@ module.exports = function(paths, livereload) {
         var src  = paths.css.src + '/app.less';
         var dest = paths.css.dist;
 
-        var versionHash = "~" + require('shortid').generate() + "~";
+        var versionHash = '~' + require('shortid').generate() + '~';
 
-        var minify = vinylMap(function (buff) {
+        var minify = vinylMap(function(buff) {
             return new CleanCSS({
                 advanced: true,
                 aggressiveMerging: true,

@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
 module.exports = function(express) {
-    var app = express();
+    let app = express();
 
     app.locals.startTime = Date.now();
 
@@ -65,14 +65,14 @@ module.exports = function(express) {
             'jade',
             'map',
             'htm',
-        ]
+        ],
     });
     express.static.mime.define({
         'text/css': [
             'less',
-        ]
+        ],
     });
 
 
     return app;
-}
+};
