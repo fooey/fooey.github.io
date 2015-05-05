@@ -9,8 +9,6 @@ var _           = require('lodash');
 
 
 var rename      = require('gulp-rename');
-// var replace     = require('gulp-replace');
-// var rimraf      = require('rimraf');
 var sourcemaps  = require('gulp-sourcemaps');
 
 

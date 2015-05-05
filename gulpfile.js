@@ -3,11 +3,7 @@
 // jscs:disable esnext
 // jscs:disable disallowKeywords
 
-var gulp  = require('gulp');
-// var gutil = require('gulp-util');
-
-// var _     = require('lodash');
-
+var gulp       = require('gulp');
 var livereload = require('gulp-livereload');
 
 
@@ -18,18 +14,18 @@ var livereload = require('gulp-livereload');
 *
 */
 
-var paths = {};
-paths.public = './public';
+var paths      = {};
+paths.public   = './public';
 
-paths.css = {};
+paths.css      = {};
 paths.css.base = paths.public + '/css';
 paths.css.src  = paths.css.base + '/src';
 paths.css.dist = paths.css.base + '/dist';
 
-paths.js = {};
-paths.js.base = paths.public + '/js';
-paths.js.src  = paths.js.base + '/src';
-paths.js.dist = paths.js.base + '/dist';
+paths.js       = {};
+paths.js.base  = paths.public + '/js';
+paths.js.src   = paths.js.base + '/src';
+paths.js.dist  = paths.js.base + '/dist';
 
 
 
@@ -42,8 +38,14 @@ paths.js.dist = paths.js.base + '/dist';
 *
 */
 
-var compileCSS = require('./gulp/compile-css')(paths, livereload);
-gulp.task('compile-css', [], compileCSS);
+var css = require('./gulp/compile-css');
+
+
+gulp.task('css-custom', [], css.custom(paths, livereload));
+gulp.task('css-bootstrap', [], css.bootstrap(paths, livereload));
+// gulp.task('css-compress', [], css.compress(paths, livereload));
+
+gulp.task('build-css', ['css-bootstrap', 'css-custom'/*, 'css-compress'*/], function(cb) {cb()});
 
 
 
@@ -56,8 +58,8 @@ gulp.task('compile-css', [], compileCSS);
 *
 */
 
-var compileJS = require('./gulp/compile-js')(paths, livereload);
-gulp.task('compile-js', [], compileJS);
+var buildJS = require('./gulp/compile-js')(paths, livereload);
+gulp.task('build-js', [], buildJS);
 
 
 
@@ -69,11 +71,24 @@ gulp.task('compile-js', [], compileJS);
 */
 
 gulp.task('watch', [], function() {
-    livereload({start: true});
+    livereload.listen();
 
-    gulp.watch(paths.css.src + '/**/*.less', ['compile-css']);
+    gulp.watch([
+        paths.css.src + '/**/*.less',
+        '!' + paths.css.src + '/bootstrap/*.less',
+    ], ['css-custom']);
+
+    gulp.watch([
+        paths.css.src + '/bootstrap/*.less',
+    ], ['css-bootstrap']);
+
+
+    // gulp.watch(paths.css.dist + '/app.min.css', livereload.changed);
+
     // gulp.watch(paths.js.src + '/**/*.js', ['jsmin']);
-    gulp.watch('./views/**/*.jade', livereload.changed);
+
+
+    // gulp.watch('./views/**/*.jade', livereload.changed);
 });
 
 
@@ -120,7 +135,9 @@ gulp.task('nodemon-prod', function(cb) {
 */
 
 
-gulp.task('dev', ['default'], function(cb) {cb()});
-gulp.task('default', ['watch', 'compile-css', 'compile-js', 'nodemon'], function(cb) {cb()});
+gulp.task('build-assets', ['build-css', 'build-js'], function(cb) {cb()});
 
-gulp.task('prod', ['watch', 'compile-css', 'compile-js', 'nodemon-prod'], function(cb) {cb()});
+gulp.task('dev', ['default'], function(cb) {cb()});
+gulp.task('default', ['nodemon', 'watch', 'build-assets'], function(cb) {cb()});
+
+gulp.task('prod', ['nodemon-prod', 'watch', 'build-assets'], function(cb) {cb()});

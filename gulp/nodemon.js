@@ -36,13 +36,11 @@ module.exports = function(options, livereload, cb) {
 
     return nodemon(config)
         .on('start', function() {
+            livereload.reload('');
+
             if (!called) {
                 called = true;
                 cb();
             }
-        })
-        .on('restart', function() {
-            console.log('restarted!');
-            livereload();
         });
 };
