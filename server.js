@@ -5,8 +5,9 @@
 
 const appPort = process.env.PORT || 3000;
 const appEnv = process.env.NODE_ENV || 'production';
+const appHost = process.env.HOST || 'other';
 
-if (appEnv !== 'development') {
+if (appHost === 'heroku' && appEnv !== 'development') {
     require('newrelic');
 }
 
