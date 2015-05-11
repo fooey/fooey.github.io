@@ -1,6 +1,6 @@
 'use strict';
 
-require('babel/register');
+// require('babel/register');
 
 
 const appPort = process.env.PORT || 3000;
