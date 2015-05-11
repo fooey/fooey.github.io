@@ -12,7 +12,7 @@ module.exports = function(app) {
 
 
     app.use(serveStatic('public', staticOptions));
-    app.use('/nm', serveStatic('node_modules', staticOptions));
+    // app.use('/nm', serveStatic('node_modules', staticOptions));
     app.use('/routes', serveStatic('routes', staticOptions));
     app.use('/views', serveStatic('views', staticOptions));
 

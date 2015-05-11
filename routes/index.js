@@ -1,70 +1,48 @@
 'use strict';
 
+const path = require('path');
+
 
 module.exports = function(app, express) {
-    require('./middleware.js')(app, express);
-    require('./statics.js')(app, express);
 
 
+    app.get.apply(app, getRedirectRoute('/index.html', '/'));
     app.get.apply(app, getRedirectRoute('/default', '/'));
     app.get.apply(app, getRedirectRoute('/index', '/'));
 
     app.get('/', (req, res) => {
-        res.render('index', {
-            metaTitle: 'Jason Rushton',
-            metaDescription: '',
-            req: req,
-        });
-        res.end();
+        res.sendFile(path.resolve('./public/index.html'));
     });
-
-
 
 
     app.get.apply(app, getRedirectRoute('/Overview', '/overview'));
     app.get.apply(app, getRedirectRoute('/overview', '/overview'));
 
     app.get('/overview', (req, res) => {
-        res.render('overview', {
-            metaTitle: 'Jason Rushton',
-            metaDescription: '',
-            canonical: '/#overview',
-            req: req,
-        });
-        res.end();
+        res.sendFile(path.resolve('./public/overview.html'));
     });
-
 
 
     app.get.apply(app, getRedirectRoute('/Knowledge', '/knowledge'));
     app.get.apply(app, getRedirectRoute('/knowledge', '/knowledge'));
 
     app.get('/knowledge', (req, res) => {
-        res.render('knowledge', {
-            metaTitle: 'Jason Rushton',
-            metaDescription: '',
-            canonical: '/#knowledge',
-            req: req,
-        });
-        res.end();
+        res.sendFile(path.resolve('./public/knowledge.html'));
     });
-
 
 
     app.get.apply(app, getRedirectRoute('/Projects', '/projects'));
     app.get.apply(app, getRedirectRoute('/projects', '/projects'));
 
     app.get('/projects', (req, res) => {
-        res.render('projects', {
-            metaTitle: 'Jason Rushton',
-            metaDescription: '',
-            canonical: '/#projects',
-            req: req,
-        });
-        res.end();
+        res.sendFile(path.resolve('./public/projects.html'));
     });
 
 
+
+
+    require('./middleware.js')(app, express);
+    require('./statics.js')(app, express);
 
     return app;
 };

@@ -15,7 +15,7 @@ module.exports = function(options, livereload, cb) {
             js: 'iojs',
         },
         script: './server.js',
-        ext: 'js,jade',
+        ext: 'js',
         ignore: [
             '.git/**',
             'gulpfile.js',

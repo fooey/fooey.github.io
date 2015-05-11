@@ -27,6 +27,23 @@ paths.js.base  = paths.public + '/js';
 paths.js.src   = paths.js.base + '/src';
 paths.js.dist  = paths.js.base + '/dist';
 
+paths.views       = {};
+paths.views.src   = './views';
+paths.views.dist  = './public';
+
+
+
+
+
+/*
+*
+* HTML Templates
+*
+*/
+
+var views = require('./gulp/views');
+gulp.task('views-build', [], views.compileToHtml(paths, livereload));
+
 
 
 
@@ -45,8 +62,7 @@ gulp.task('css-custom', [], css.custom(paths, livereload));
 gulp.task('css-bootstrap', [], css.bootstrap(paths, livereload));
 // gulp.task('css-compress', [], css.compress(paths, livereload));
 
-gulp.task('build-css', ['css-bootstrap', 'css-custom'/*, 'css-compress'*/], function(cb) {cb()});
-
+gulp.task('css-build', ['css-bootstrap', 'css-custom'/*, 'css-compress'*/], function(cb) {cb()});
 
 
 
@@ -59,7 +75,7 @@ gulp.task('build-css', ['css-bootstrap', 'css-custom'/*, 'css-compress'*/], func
 */
 
 var buildJS = require('./gulp/compile-js')(paths, livereload);
-gulp.task('build-js', [], buildJS);
+gulp.task('js-build', [], buildJS);
 
 
 
@@ -70,7 +86,7 @@ gulp.task('build-js', [], buildJS);
 *
 */
 
-gulp.task('watch', [], function() {
+gulp.task('watch', ['build-assets'], function() {
     livereload.listen();
 
     gulp.watch([
@@ -81,6 +97,10 @@ gulp.task('watch', [], function() {
     gulp.watch([
         paths.css.src + '/bootstrap/*.less',
     ], ['css-bootstrap']);
+
+    gulp.watch([
+        paths.views.src + '/**/*.jade',
+    ], ['views-build']);
 
 
     // gulp.watch(paths.css.dist + '/app.min.css', livereload.changed);
@@ -135,7 +155,7 @@ gulp.task('nodemon-prod', function(cb) {
 */
 
 
-gulp.task('build-assets', ['build-css', 'build-js'], function(cb) {cb()});
+gulp.task('build-assets', ['views-build', 'css-build', 'js-build'], function(cb) {cb()});
 
 gulp.task('dev', ['default'], function(cb) {cb()});
 gulp.task('default', ['nodemon', 'watch', 'build-assets'], function(cb) {cb()});
