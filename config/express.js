@@ -17,15 +17,15 @@ module.exports = function(express) {
     app.enable('strict routing');
 
 
-    /*
-    *
-    * Views
-    *
-    */
+    // /*
+    // *
+    // * Views
+    // *
+    // */
 
-    app.set('views', './views');
-    app.set('view engine', 'jade');
-    app.engine('jade', require('jade').__express);
+    // app.set('views', './views');
+    // app.set('view engine', 'jade');
+    // app.engine('jade', require('jade').__express);
 
 
 
@@ -44,11 +44,11 @@ module.exports = function(express) {
 
         app.use(errorhandler());
         app.use(morgan('dev'));
-        app.set('view cache', false);
+        // app.set('view cache', false);
     }
     else {
         app.use(morgan('combined'));
-        app.set('view cache', true);
+        // app.set('view cache', true);
     }
     app.use(compression());
 
