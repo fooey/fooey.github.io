@@ -46,6 +46,14 @@ module.exports = function(app, express) {
     });
 
 
+    app.get.apply(app, getRedirectRoute('/Resume', '/resume'));
+    app.get.apply(app, getRedirectRoute('/resume', '/resume'));
+
+    app.get('/resume', function(req, res) {
+        res.sendFile(path.resolve('./public/resume.html'));
+    });
+
+
 
 
     require('./middleware.js')(app, express);
