@@ -5,6 +5,13 @@ const path = require('path');
 
 module.exports = function(app, express) {
 
+    /*
+    *   Redirect Old Resume
+    */
+    app.get.apply(app, getRedirectRoute('/resume/JasonRushton.docx', '/resume/jasonrushton.resume.pdf'));
+    app.get.apply(app, getRedirectRoute('/resume/JasonRushton.full.docx', '/resume/jasonrushton.resume.full.pdf'));
+
+
 
     app.get.apply(app, getRedirectRoute('/index.html', '/'));
     app.get.apply(app, getRedirectRoute('/default', '/'));
