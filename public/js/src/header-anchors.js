@@ -7,7 +7,7 @@ module.exports = (function() {
         let $el = $(el);
         let id  = $el.attr('id');
 
-        let $anchor = $(`<a href="#${id}"><i class="fa" /></a>`);
+        let $anchor = $(`<a class="anchor-link" href="#${id}"><i class="fa" /></a>`);
         let $header = ($el.is(':header'))
             ? $el
             : $el.find(':header:first');
