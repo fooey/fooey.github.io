@@ -24,14 +24,26 @@ $(function() {
     let $nav = $('#navbar');
     const navHeight = $nav.height();
 
-    let $nav2 = $nav
-        .clone()
-        .attr('id', 'nav2')
+    let $nav2 = $('#navbar2')
         .addClass('navbar-fixed-bottom')
         .css({
             bottom: '-' + navHeight + 'px'
-        })
-        .appendTo('body');
+        });
+
+    // let $nav2 = $nav
+    //     .clone()
+    //     .attr('id', 'nav2')
+    //     .addClass('navbar-fixed-bottom')
+    //     .css({
+    //         bottom: '-' + navHeight + 'px'
+    //     })
+    //     .find('.navbar-toggle')
+    //         .attr('data-target', '#navbar2-collapse')
+    //     .end()
+    //     .find('#navbar-collapse')
+    //         .attr('id', '#navbar2-collapse')
+    //     .end()
+    //     .appendTo('body');
 
 
     $win.scroll(_.throttle(function() {
