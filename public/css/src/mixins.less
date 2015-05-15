@@ -12,7 +12,7 @@
     li {
         list-style: none;
         white-space: nowrap;
-        margin: 0 0 0 .5em;
+        margin: 0 0 0 .3em;
         padding: 0;
         display: inline-block;
 
@@ -36,13 +36,29 @@
 
     li.title {
         margin-left: -@titleWidth;
+        margin-right: 0;
         width: @titleWidth;
         text-align: right;
         font-family: 'Roboto Condensed';
         font-weight: 700;
 
+
         &:after {
-            content: "";
+            content: ":";
+        }
+    }
+
+    @media(max-width: @screen-xs-min) {
+        padding: 0;
+
+        li.title {
+            margin-left: 0;
+            display: block;
+            text-align: left;
+
+            &:after {
+                content: "";
+            }
         }
     }
 }
