@@ -3,12 +3,11 @@
 const _ = require('lodash');
 
 
-module.exports = function(containerSelector, contentSelector) {
+module.exports = function($win, containerSelector, contentSelector) {
     let $container = $(containerSelector);
     let $content   = $container.find(contentSelector);
 
     if ($container && $content) {
-        let $win            = $(window);
         const contentTop    = $container.offset().top;
         const contentBottom = $container.offset().top + $container.outerHeight() + 1;
 
