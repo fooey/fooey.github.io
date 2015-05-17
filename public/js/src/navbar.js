@@ -4,21 +4,30 @@ const _ = require('lodash');
 
 
 module.exports = function($win) {
-    let $nav2 = $('#navbar2');
-    const navHeight = $nav2.height();
+    // let $nav2 = $('#navbar2');
+    let $hamburger = $('#hamburger');
+
+    const navHeight = 60;
+    const hbBaseOffset = -50;
 
     $win.scroll(_.throttle(function() {
         const winScroll = $win.scrollTop();
 
         if (winScroll <= navHeight) {
-            $nav2.css({
-                bottom: `-${navHeight - winScroll}px`
+            $hamburger.css({
+                top: `${hbBaseOffset + winScroll}px`
             });
+            // $nav2.css({
+            //     bottom: `-${navHeight - winScroll}px`
+            // });
         }
         else {
-            $nav2.css({
-                bottom: '0px'
+            $hamburger.css({
+                top: `10px`
             });
+            // $nav2.css({
+            //     bottom: '0px'
+            // });
         }
 
     }, 1000 / 60));

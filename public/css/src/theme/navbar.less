@@ -80,3 +80,90 @@
 
     }
 }
+
+.navbar-responsive-font {
+
+}
+
+
+
+ul#hamburger {
+    &, & > * {
+        transition: all 250ms ease-in;
+    }
+
+    position: fixed;
+
+    top: 10px;
+    @media(min-width: @screen-xs-max) { top: -50px; }
+    right: 10px;
+
+    min-height: 40px;
+    line-height: 40px;
+
+    padding: 0;
+    margin: 0;
+
+    font: 300 12pt/40px Roboto Condensed;
+    text-transform: uppercase;
+
+    background-color: @brand-info;
+    box-shadow: 2px 2px 6px 0 rgba(0,0,0,0.4);
+
+    overflow: hidden;
+    z-index: 999;
+
+    > li, li > a {
+        color: #fff;
+        &:active,
+        &:hover {
+            background-color: transparent;
+            text-decoration: none;
+        }
+    }
+
+
+    .li-show() {
+        opacity: 1;
+        width: 200px;
+        height: 40px;
+        padding: 0 .6em;
+    }
+    .li-hide() {
+        opacity: 0;
+        width: 0;
+        padding: 0;
+        height: 0;
+    }
+
+    > li {
+        .li-hide();
+
+        display: block;
+        margin: 0;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+
+        &.toggle {
+            .li-show();
+
+            width: 2em;
+            padding: 0;
+            font-size: 20pt;
+            font-weight: 300;
+            opacity: .7;
+        }
+    }
+
+    &:active,
+    &:hover {
+
+        li {
+            &.toggle {
+                 .li-hide();
+            }
+            .li-show();
+        }
+    }
+}
