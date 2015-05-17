@@ -1,32 +1,33 @@
 {
-  "name": "me",
+  "name": "JasonRushton.com",
   "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "git://github.com/fooey/me.git"
+    "url": "git://github.com/fooey/jasonrushton.git"
   },
   "engines": {
     "iojs": "~2.0.x",
     "npm": "~2.x.x"
   },
   "dependencies": {
-    "compression": "^1.4.3",
-    "errorhandler": "^1.3.5",
+    "compression": "^1.4.4",
+    "errorhandler": "^1.3.6",
     "express": "^4.12.3",
     "morgan": "^1.5.3",
-    "newrelic": "^1.19.0",
-    "serve-static": "^1.9.2"
+    "newrelic": "^1.19.1",
+    "serve-static": "^1.9.3"
   },
   "devDependencies": {
     "async": "^0.9.0",
     "autoprefixer-core": "^5.1.11",
-    "babel": "^5.2.17",
-    "babelify": "^6.1.0",
+    "babel": "^5.4.3",
+    "babel-core": "^5.4.3",
+    "babelify": "^6.1.1",
     "bootstrap": "^3.3.4",
     "bootswatch": "^3.3.4",
-    "browserify": "^10.1.3",
+    "browserify": "^10.2.0",
     "browserify-shim": "^3.8.6",
-    "csswring": "^3.0.4",
+    "csswring": "^3.0.5",
     "gulp": "^3.8.11",
     "gulp-jade": "^1.0.0",
     "gulp-less": "^3.0.3",
