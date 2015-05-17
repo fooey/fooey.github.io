@@ -9,27 +9,47 @@ module.exports = function($win) {
 
     const navHeight = 60;
     const hbBaseOffset = -50;
+    const minWidth = 768;
 
-    $win.scroll(_.throttle(function() {
+    let winWidth = $win.width();
+
+    let curNavTop;
+    // setNavTop(-50);
+
+
+    const navSlider = _.throttle(function() {
         const winScroll = $win.scrollTop();
 
-        if (winScroll <= navHeight) {
-            $hamburger.css({
-                top: `${hbBaseOffset + winScroll}px`
-            });
-            // $nav2.css({
-            //     bottom: `-${navHeight - winScroll}px`
-            // });
+        if (winWidth <= minWidth || winScroll > navHeight) {
+            setNavTop(10);
         }
         else {
-            $hamburger.css({
-                top: `10px`
-            });
-            // $nav2.css({
-            //     bottom: '0px'
-            // });
+            setNavTop(hbBaseOffset + winScroll);
         }
 
-    }, 1000 / 60));
+    }, 1000 / 60);
+
+
+
+    function setNavTop(navTop) {
+        if (curNavTop !== navTop) {
+            $hamburger.css({
+                top: `${navTop}px`
+            });
+
+            curNavTop = navTop;
+        }
+    }
+
+
+    $win.resize(function(){
+        winWidth = $win.width();
+
+        navSlider();
+    });
+
+
+
+    $win.scroll(navSlider);
 
 };
