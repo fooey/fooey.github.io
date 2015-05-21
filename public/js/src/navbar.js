@@ -5,41 +5,71 @@ const _ = require('lodash');
 
 module.exports = function($win) {
     // let $nav2 = $('#navbar2');
-    let $hamburger = $('#hamburger');
 
     const navHeight = 60;
-    const hbBaseOffset = -50;
-    const minWidth = 768;
+    const minWidth  = 768;
 
-    let winWidth = $win.width();
+    let $hamburger  = $('#hamburger');
+    let $toggle     = $hamburger.find('.toggle');
+    let $menu       = $hamburger.find('.menu');
 
-    let curNavTop;
-    // setNavTop(-50);
+    let winWidth    = $win.width();
+    let isVisible   = false;
+
+    $toggle.find('.open').on('click', toggleToggler.bind($toggle, true));
+    $toggle.find('.close').on('click', toggleToggler.bind($toggle, false));
+    $menu.on('click', toggleToggler.bind($toggle, false));
+
+
+    function enableToggler(winScroll) {
+        const smallWindow = winWidth <= minWidth;
+        const winScrolled = winScroll > navHeight;
+        const shouldShow  = smallWindow || winScrolled;
+
+        if (!isVisible && shouldShow) {
+            $toggle.addClass('enabled');
+            isVisible = true;
+            console.log('show');
+        }
+        else if (isVisible && !shouldShow) {
+            $toggle.removeClass('enabled');
+            isVisible = false;
+            console.log('hide');
+        }
+    }
+
+
+    let toggleIsOpen = false;
+    function toggleToggler(enable, e) {
+        console.log('toggleToggler', enable, arguments);
+
+        enable = enable || !toggleIsOpen;
+
+
+        if (enable) {
+            $toggle.addClass('active');
+            $menu.addClass('enabled');
+            console.log('remove active');
+        }
+        else {
+            $toggle.removeClass('active');
+            $menu.removeClass('enabled');
+            console.log('active');
+        }
+
+        toggleIsOpen = enable;
+    }
+
 
 
     const navSlider = _.throttle(function() {
         const winScroll = $win.scrollTop();
 
-        if (winWidth <= minWidth || winScroll > navHeight) {
-            setNavTop(10);
-        }
-        else {
-            setNavTop(hbBaseOffset + winScroll);
-        }
+        enableToggler(winScroll);
 
     }, 1000 / 60);
 
 
-
-    function setNavTop(navTop) {
-        if (curNavTop !== navTop) {
-            $hamburger.css({
-                top: `${navTop}px`
-            });
-
-            curNavTop = navTop;
-        }
-    }
 
 
     $win.resize(function(){
@@ -48,8 +78,9 @@ module.exports = function($win) {
         navSlider();
     });
 
-
-
     $win.scroll(navSlider);
+    navSlider();
+
+
 
 };

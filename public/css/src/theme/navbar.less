@@ -87,83 +87,129 @@
 
 
 
-ul#hamburger {
+
+
+/*
+*   hamburger menu
+*/
+
+#hamburger {
     &, & > * {
-        transition: all 250ms ease-in;
+        transition: all 150ms ease-in;
     }
 
-    position: fixed;
-
-    top: 10px;
-    @media(min-width: @screen-xs-max) { top: -50px; }
-    right: 10px;
-
-    min-height: 40px;
-    line-height: 40px;
-
-    padding: 0;
-    margin: 0;
-
-    font: 300 12pt/40px Roboto Condensed;
     text-transform: uppercase;
+    font-weight: 300;
+    font-family: "Roboto Condensed";
+    // box-shadow: 2px 2px 6px 0 rgba(0,0,0,0.4);
 
-    background-color: @brand-info;
-    box-shadow: 2px 2px 6px 0 rgba(0,0,0,0.4);
 
-    overflow: hidden;
-    z-index: 999;
+    .toggle {
 
-    > li, li > a {
-        color: #fff;
-        &:active,
-        &:hover {
+        position: fixed;
+        top     : 10px;
+        right   : 10px;
+        z-index : 910;
+        padding : .5em;
+        opacity : 0;
+
+        font-size  : 2em;
+        line-height: 100%;
+
+        background-color: @brand-info;
+
+        a {
+            transition: opacity 250ms ease-in;
+            cursor    : pointer;
+            color     : #fff;
+
+            overflow: hidden;
+            display : inline-block;
+            width   : 100%;
+        }
+
+        &.enabled {
+            opacity: .95;
+        }
+
+
+
+        .open {
+            opacity: 1;
+            max-width: 100%;
+        }
+        .close {
+            opacity: 0;
+            max-width: 0;
+        }
+
+        &.active {
             background-color: transparent;
-            text-decoration: none;
-        }
-    }
 
-
-    .li-show() {
-        opacity: 1;
-        width: 200px;
-        height: 40px;
-        padding: 0 .6em;
-    }
-    .li-hide() {
-        opacity: 0;
-        width: 0;
-        padding: 0;
-        height: 0;
-    }
-
-    > li {
-        .li-hide();
-
-        display: block;
-        margin: 0;
-        text-align: center;
-        white-space: nowrap;
-        overflow: hidden;
-
-        &.toggle {
-            .li-show();
-
-            width: 2em;
-            padding: 0;
-            font-size: 20pt;
-            font-weight: 300;
-            opacity: .7;
-        }
-    }
-
-    &:active,
-    &:hover {
-
-        li {
-            &.toggle {
-                 .li-hide();
+            .open {
+                opacity: 0;
+                max-width: 0;
             }
-            .li-show();
+            .close {
+                opacity: 1;
+                max-width: 100%;
+            }
+        }
+    }
+
+
+    .menu {
+        background-color: @brand-info;
+        opacity: .95;
+
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 100%;
+        z-index: 900;
+
+        margin: 0;
+        padding: 0;
+        height: 100%;
+
+
+        // font-size: 3em;
+
+        font-size: 1em;
+        font-size: 5vh;
+
+        @media(min-width: @screen-md-min) { font-size: 2em; }
+        line-height: 300%;
+
+
+        &.enabled {
+            left: 25%;
+        }
+
+        ul {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+
+
+            li, li > a {
+                color: #fff;
+                &:active,
+                &:hover {
+                    background-color: transparent;
+                    text-decoration: none;
+                }
+            }
+
+
+
+            li {
+                display: block;
+                margin: 0;
+                text-align: center;
+                white-space: nowrap;
+                overflow: hidden;
+            }
         }
     }
 }

@@ -48,16 +48,21 @@ html(lang="en")
                             |  Résumé
 
 
-        ul#hamburger.list-inline.list-unstyled
-            li.toggle: a: i.fa.fa-bars
-            li: a(href="/#overview") Overview
-            li: a(href="/#contact") Contact
-            li: a(href="/#knowledge") Knowledge
-            li: a(href="/#projects") Projects
-            //- li: a(href="/#experience") Experience
-            li: a(href="/#resume")
-                i.fa.fa-download
-                |  Résumé
+        #hamburger
+            div.toggle
+                a.open: i.fa.fa-bars
+                a.close: i.fa.fa-times
+
+            .menu
+                ul.list-inline.list-unstyled
+                    li: a(href="/#overview") Overview
+                    li: a(href="/#contact") Contact
+                    li: a(href="/#knowledge") Knowledge
+                    li: a(href="/#projects") Projects
+                    //- li: a(href="/#experience") Experience
+                    li: a(href="/#resume")
+                        i.fa.fa-download
+                        |  Résumé
 
 
         block content
