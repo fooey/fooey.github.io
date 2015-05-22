@@ -94,7 +94,9 @@
 */
 
 #hamburger {
+
     &, & > * {
+        box-sizing: border-box;
         transition: all 150ms ease-in;
     }
 
@@ -107,14 +109,21 @@
     .toggle {
 
         position: fixed;
-        top     : 10px;
-        right   : 10px;
+        top     : 0;
+        right   : 0;
         z-index : 910;
-        padding : .5em;
+        padding : 0 0 0 .1em;
         opacity : 0;
 
-        font-size  : 2em;
-        line-height: 100%;
+        text-align: center;
+
+        @size        : 60px;
+        font-size    : @size/2;
+        line-height  : @size;
+        height       : @size;
+        width        : @size;
+
+        border-bottom-left-radius: @size/2;
 
         background-color: @brand-info;
 
@@ -123,36 +132,44 @@
             cursor    : pointer;
             color     : #fff;
 
-            overflow: hidden;
-            display : inline-block;
-            width   : 100%;
+            position  : relative;
+            top       : -.05em;
+            right     : -.05em;
+
+            overflow  : hidden;
+            display   : inline-block;
+            width     : 100%;
         }
 
         &.enabled {
-            opacity: .95;
+            opacity: 1;
         }
 
 
-
-        .open {
-            opacity: 1;
+        .toggler-enabled {
+            opacity  : 1;
             max-width: 100%;
         }
-        .close {
-            opacity: 0;
+        .toggler-disabled {
+            opacity  : 0;
             max-width: 0;
+        }
+
+        .open {
+            .toggler-enabled();
+        }
+        .close {
+            .toggler-disabled();
         }
 
         &.active {
             background-color: transparent;
 
             .open {
-                opacity: 0;
-                max-width: 0;
+                .toggler-disabled();
             }
             .close {
-                opacity: 1;
-                max-width: 100%;
+                .toggler-enabled();
             }
         }
     }
@@ -160,36 +177,47 @@
 
     .menu {
         background-color: @brand-info;
-        opacity: .95;
+        opacity: 1;
+        white-space: nowrap;
+        overflow: hidden;
 
         position: fixed;
-        top: 0;
-        right: 0;
-        left: 100%;
-        z-index: 900;
+        z-index : 900;
 
-        margin: 0;
-        padding: 0;
-        height: 100%;
+        bottom  : 100%;
+        left    : 100%;
+
+        height  : 100%;
+        width   : 100%;
+
+        margin  : 0 0 0 25%;
+        padding : 0;
+
+        border-bottom-left-radius: 50vmin;
 
 
         // font-size: 3em;
 
         font-size: 1em;
-        font-size: 5vh;
+        font-size: 4vh;
 
+        @media(min-width: @screen-sm-min) { font-size: 5vh; }
         @media(min-width: @screen-md-min) { font-size: 2em; }
         line-height: 300%;
 
 
         &.enabled {
-            left: 25%;
+            left  : 0;
+            bottom: 0;
         }
 
         ul {
             position: relative;
             top: 50%;
+            left: -10%;
             transform: translateY(-50%);
+            white-space: nowrap;
+            overflow: hidden;
 
 
             li, li > a {
