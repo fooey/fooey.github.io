@@ -13,7 +13,7 @@ module.exports = function($win) {
     let $toggle     = $hamburger.find('.toggle');
     let $menu       = $hamburger.find('.menu');
 
-    let winWidth    = $win.width();
+    let winWidth    = window.innerWidth;
     let isVisible   = false;
 
     $toggle.find('.open').on('click', toggleToggler.bind($toggle, true));
@@ -22,7 +22,7 @@ module.exports = function($win) {
 
 
     function enableToggler(winScroll) {
-        const smallWindow = winWidth <= minWidth;
+        const smallWindow = winWidth < minWidth;
         const winScrolled = winScroll > navHeight;
         const shouldShow  = smallWindow || winScrolled;
 
@@ -57,7 +57,7 @@ module.exports = function($win) {
 
 
     const navSlider = _.throttle(function() {
-        const winScroll = $win.scrollTop();
+        const winScroll = window.pageYOffset || document.body.scrollTop;
 
         enableToggler(winScroll);
 
@@ -67,7 +67,7 @@ module.exports = function($win) {
 
 
     $win.resize(function(){
-        winWidth = $win.width();
+        winWidth = window.innerWidth;
 
         navSlider();
     });
