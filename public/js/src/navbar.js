@@ -29,32 +29,26 @@ module.exports = function($win) {
         if (!isVisible && shouldShow) {
             $toggle.addClass('enabled');
             isVisible = true;
-            console.log('show');
         }
         else if (isVisible && !shouldShow) {
             $toggle.removeClass('enabled');
             isVisible = false;
-            console.log('hide');
         }
     }
 
 
     let toggleIsOpen = false;
     function toggleToggler(enable, e) {
-        console.log('toggleToggler', enable, arguments);
-
         enable = enable || !toggleIsOpen;
 
 
         if (enable) {
             $toggle.addClass('active');
             $menu.addClass('enabled');
-            console.log('remove active');
         }
         else {
             $toggle.removeClass('active');
             $menu.removeClass('enabled');
-            console.log('active');
         }
 
         toggleIsOpen = enable;
