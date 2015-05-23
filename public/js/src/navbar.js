@@ -3,18 +3,19 @@
 const _ = require('lodash');
 
 
-module.exports = function($win) {
+module.exports = function(scrollListeners) {
     // let $nav2 = $('#navbar2');
 
     const navHeight = 60;
     const minWidth  = 768;
 
-    let $hamburger  = $('#hamburger');
-    let $toggle     = $hamburger.find('.toggle');
-    let $menu       = $hamburger.find('.menu');
+    let $win       = $(window);
+    let $hamburger = $('#hamburger');
+    let $toggle    = $hamburger.find('.toggle');
+    let $menu      = $hamburger.find('.menu');
 
-    let winWidth    = window.innerWidth;
-    let isVisible   = false;
+    let winWidth  = window.innerWidth;
+    let isVisible = false;
 
     $toggle.find('.open').on('click', toggleToggler.bind($toggle, true));
     $toggle.find('.close').on('click', toggleToggler.bind($toggle, false));
@@ -56,25 +57,23 @@ module.exports = function($win) {
 
 
 
-    const navSlider = _.throttle(function() {
+    function navSlider() {
         const winScroll = window.pageYOffset || document.body.scrollTop;
 
         enableToggler(winScroll);
-
-    }, 1000 / 60);
-
+    }
 
 
 
-    $win.resize(function(){
+
+    $win.resize(_.throttle(function(){
         winWidth = window.innerWidth;
 
         navSlider();
-    });
+    }, 1000 / 60));
 
-    $win.scroll(navSlider);
     navSlider();
 
 
-
+    scrollListeners.push(navSlider);
 };

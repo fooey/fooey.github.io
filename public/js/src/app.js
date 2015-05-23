@@ -2,6 +2,11 @@
 
 require('babel/polyfill');
 
+const _     = require('lodash');
+
+const navbar = require('./navbar');
+const paraFade = require('./para-fade');
+
 
 $(function() {
 
@@ -14,7 +19,16 @@ $(function() {
 
 
     let $win  = $(window);
-    require('./navbar')($win);
-    require('./para-fade')($win, '#welcome', 'header');
+    let scrollListeners = [];
+
+
+    navbar(scrollListeners);
+
+    paraFade(scrollListeners, $('#welcome'), $('#welcome header'));
+
+
+   $win.scroll(_.throttle(function() {
+       scrollListeners.forEach(fn => fn());
+    }, 1000 / 60));
 
 });

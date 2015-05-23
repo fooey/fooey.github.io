@@ -27,11 +27,12 @@ module.exports = function(options, livereload, cb) {
         env: {
             PORT: '3000',
             NODE_PATH: './',
-            NODE_ENV: 'production',
         },
 
         delay: 200,
     }, options);
+
+    console.log('nodemon config', config);
 
 
     return nodemon(config)

@@ -77,13 +77,12 @@ html(lang="en")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/featherlight/1.2.3/featherlight.min.js")
 
-        //- script(src="/nm/babel-core/browser-polyfill.js")
-        //- script(src="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js")
 
         if (process.env.NODE_ENV === 'development')
             script(src="/js/dist/app.js")
         else
             script(src="/js/dist/app.min.js")
+
 
         script.
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
