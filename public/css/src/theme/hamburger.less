@@ -9,7 +9,6 @@
 
     &, & > * {
         box-sizing: border-box;
-        transition: all 150ms ease-in;
     }
 
     text-transform: uppercase;
@@ -28,6 +27,7 @@
         opacity : 0;
 
         text-align: center;
+        background-color: @brand-info;
 
         @size        : 60px;
         font-size    : @size/2;
@@ -40,54 +40,33 @@
         background-color: @brand-info;
 
         a {
-            transition: opacity 250ms ease-in;
+            text-decoration: none;
+            &:before {
+                content: '\f0c9';
+            }
             cursor    : pointer;
             color     : #fff;
 
             position  : relative;
             top       : -.05em;
             right     : -.05em;
-
-            overflow  : hidden;
-            display   : inline-block;
-            width     : 100%;
         }
 
         &.enabled {
             opacity: 1;
         }
 
-
-        .toggler-enabled {
-            opacity  : 1;
-            max-width: 100%;
-        }
-        .toggler-disabled {
-            opacity  : 0;
-            max-width: 0;
-        }
-
-        .open {
-            .toggler-enabled();
-        }
-        .close {
-            .toggler-disabled();
-        }
-
         &.active {
-            background-color: transparent;
-
-            .open {
-                .toggler-disabled();
-            }
-            .close {
-                .toggler-enabled();
+            a:before {
+                content: '\f00d';
             }
         }
     }
 
 
     .menu {
+        transition: all 400ms ease-in;
+
         background-color: @brand-info;
         opacity: 1;
         white-space: nowrap;
@@ -96,16 +75,18 @@
         position: fixed;
         z-index : 900;
 
-        bottom  : 100%;
-        left    : 100%;
+        right  : 0;
+        top    : 0;
 
         height  : 100%;
-        width   : 100%;
+        width   : 75%;
 
-        margin  : 0 0 0 25%;
+        margin  : 0;
         padding : 0;
 
-        border-bottom-left-radius: 25vmin;
+
+        border-bottom-left-radius: 1em;
+        transform: translate(100%, -100%) scale(0);
 
 
         // font-size: 3em;
@@ -121,14 +102,13 @@
 
 
         &.enabled {
-            left  : 0;
-            bottom: 0;
+            transform: translate(0, 0)  scale(1);
+            border-bottom-left-radius: 25vmin;
         }
 
         ul {
             position: relative;
             top: 50%;
-            left: -10%;
             transform: translateY(-50%);
             white-space: nowrap;
             overflow: hidden;

@@ -14,12 +14,11 @@ module.exports = function(scrollListeners) {
     let $toggle    = $hamburger.find('.toggle');
     let $menu      = $hamburger.find('.menu');
 
-    let winWidth  = window.innerWidth;
-    let isVisible = false;
+    let winWidth     = window.innerWidth;
+    let isVisible    = false;
 
-    $toggle.find('.open').on('click', toggleToggler.bind($toggle, true));
-    $toggle.find('.close').on('click', toggleToggler.bind($toggle, false));
-    $menu.on('click', toggleToggler.bind($toggle, false));
+    $toggle.on('click', toggleToggler);
+    $menu.on('click', hideMenu);
 
 
     function enableToggler(winScroll) {
@@ -38,21 +37,25 @@ module.exports = function(scrollListeners) {
     }
 
 
-    let toggleIsOpen = false;
-    function toggleToggler(enable, e) {
-        enable = enable || !toggleIsOpen;
+    function toggleToggler() {
+        const isEnabled = $menu.hasClass('enabled');
 
-
-        if (enable) {
-            $toggle.addClass('active');
-            $menu.addClass('enabled');
+        if (isEnabled) {
+            hideMenu();
         }
         else {
-            $toggle.removeClass('active');
-            $menu.removeClass('enabled');
+            showMenu();
         }
+    }
 
-        toggleIsOpen = enable;
+    function showMenu() {
+        $toggle.addClass('active');
+        $menu.addClass('enabled');
+    }
+
+    function hideMenu() {
+        $toggle.removeClass('active');
+        $menu.removeClass('enabled');
     }
 
 
