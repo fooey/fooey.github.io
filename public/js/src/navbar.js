@@ -22,9 +22,9 @@ module.exports = function(scrollListeners) {
 
 
     function enableToggler(winScroll) {
-        const smallWindow = winWidth < minWidth;
-        const winScrolled = winScroll > navHeight;
-        const shouldShow  = smallWindow || winScrolled;
+        const isSmallWindow = winWidth < minWidth;
+        const isWinScrolled = winScroll > navHeight;
+        const shouldShow  = isSmallWindow || isWinScrolled;
 
         if (!isVisible && shouldShow) {
             $toggle.addClass('enabled');
