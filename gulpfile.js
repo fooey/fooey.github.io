@@ -29,7 +29,7 @@ paths.js.dist  = paths.js.base + '/dist';
 
 paths.views       = {};
 paths.views.src   = './views';
-paths.views.dist  = './public';
+paths.views.dist  = './';
 
 
 

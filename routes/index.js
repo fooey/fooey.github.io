@@ -18,7 +18,7 @@ module.exports = function(app, express) {
     app.get.apply(app, getRedirectRoute('/index', '/'));
 
     app.get('/', function(req, res) {
-        res.sendFile(path.resolve('./public/index.html'));
+        res.sendFile(path.resolve('./index.html'));
     });
 
 
@@ -26,7 +26,7 @@ module.exports = function(app, express) {
     app.get.apply(app, getRedirectRoute('/overview', '/overview'));
 
     app.get('/overview', function(req, res) {
-        res.sendFile(path.resolve('./public/overview.html'));
+        res.sendFile(path.resolve('./overview.html'));
     });
 
 
@@ -34,7 +34,7 @@ module.exports = function(app, express) {
     app.get.apply(app, getRedirectRoute('/knowledge', '/knowledge'));
 
     app.get('/knowledge', function(req, res) {
-        res.sendFile(path.resolve('./public/knowledge.html'));
+        res.sendFile(path.resolve('./knowledge.html'));
     });
 
 
@@ -42,7 +42,7 @@ module.exports = function(app, express) {
     app.get.apply(app, getRedirectRoute('/projects', '/projects'));
 
     app.get('/projects', function(req, res) {
-        res.sendFile(path.resolve('./public/projects.html'));
+        res.sendFile(path.resolve('./projects.html'));
     });
 
 
@@ -50,7 +50,7 @@ module.exports = function(app, express) {
     app.get.apply(app, getRedirectRoute('/resume', '/resume'));
 
     app.get('/resume', function(req, res) {
-        res.sendFile(path.resolve('./public/resume.html'));
+        res.sendFile(path.resolve('./resume.html'));
     });
 
 
