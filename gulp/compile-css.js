@@ -14,39 +14,23 @@ var sourcemaps   = require('gulp-sourcemaps');
 var less         = require('gulp-less');
 
 var postcss      = require('gulp-postcss');
-var postcssLog   = require('postcss-log-warnings');
 
-// var cssAssets    = require('postcss-assets');
 var autoprefixer = require('autoprefixer-core');
 var postcssFocus = require('postcss-focus');
-
-// var cssnano      = require('cssnano');
 var csswring     = require('csswring');
 
 
 
 
 
-// var cacheBuster = require('./lib/cachebuster');
-
 
 
 var postcssCore = [
-    // cssAssets({
-    //     basePath: './public/',
-    //     cachebuster: function(filePath, urlPathname) {
-    //         return cacheBuster(filePath, urlPathname);
-    //     },
-    // }),
     autoprefixer({browsers: ['last 2 versions', 'ie >= 8']}),
     postcssFocus(),
-    // cssnano({urls: false}),
-    // csswring({removeAllComments: true}),
-    postcssLog(),
 ];
 
 var postcssProd = [
-    // cssnano({urls: false}),
     csswring(),
 ];
 
@@ -105,35 +89,9 @@ function bootstrap(paths, livereload) {
 
 
 
-// function compress(paths, livereload) {
-//     return function() {
-//         var src  = paths.css.dist + '/app.css';
-//         var dest = paths.css.dist;
-
-
-//         var stream = gulp
-//             .src(src)
-//             .pipe(plumber().on('error', gutil.log.bind(gutil, 'css::compress:error')))
-//             .pipe(sourcemaps.init({loadMaps: true})) // not cooperating
-
-//             .pipe(postcss(postcssProd))
-
-//             .pipe(rename({suffix: '.min'}))
-//             .pipe(sourcemaps.write('.'))
-//             .pipe(gulp.dest(dest))
-
-//             .pipe(livereload({start: false}));
-
-//         return stream;
-//     };
-// }
-
-
-
 
 
 module.exports = {
     custom   : custom,
     bootstrap: bootstrap,
-    // compress : compress,
 };

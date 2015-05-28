@@ -32,8 +32,8 @@ module.exports = function(paths, livereload) {
 
     var watchifyBundler = watchify(browserifyBundler)
          .transform(babelify)
-         .on('error', gutil.log.bind(gutil, 'Watchify Error'))
-         .on('log', function(msg) { console.log('Watchify', 'log', msg); });
+         .on('error', gutil.log.bind(gutil, 'Watchify Error'));
+         // .on('log', console.log.bind(console, 'Watchify', 'log'));
 
 
     var compileJS = function() {

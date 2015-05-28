@@ -32,7 +32,7 @@ module.exports = function(options, livereload, cb) {
         delay: 200,
     }, options);
 
-    console.log('nodemon config', config);
+    // console.log('nodemon config', config);
 
 
     return nodemon(config)
