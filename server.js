@@ -3,40 +3,39 @@
 // require('babel/register');
 
 
-const appPort = process.env.PORT || 3000;
-const appEnv = process.env.NODE_ENV || 'production';
-const appHost = process.env.HOST || 'other';
-
-if (appHost === 'heroku' && appEnv !== 'development') {
-    require('newrelic');
-}
+var appPort = process.env.PORT || 3000;
+var appEnv = process.env.NODE_ENV || 'production';
 
 
-
-GLOBAL.appStartTime = Date.now();
-
-
-let express = require('express');
-let app = require('./config/express')(express);
-
-require('./routes')(app, express);
+var finalhandler = require('finalhandler');
+var http = require('http');
+var serveStatic = require('serve-static');
 
 
 
 
-app.listen(appPort, function() {
-    console.log('');
-    console.log('**************************************************');
-    console.log('Express server started');
-    console.log('Node service starting');
-    console.log('Time:     %d', GLOBAL.appStartTime);
-    console.log('Port:     %d', appPort);
-    console.log('Mode:     %s', appEnv);
-    console.log('PID:      %s', process.pid);
-    console.log('Platform: %s', process.platform);
-    console.log('Arch:     %s', process.arch);
-    console.log('Node:     %s', process.versions.node);
-    console.log('V8:       %s', process.versions.v8);
-    console.log('**************************************************');
-    console.log('');
+var serve = serveStatic('./');
+
+// Create server
+var server = http.createServer(function(req, res){
+  var done = finalhandler(req, res);
+  serve(req, res, done);
 });
+
+// Listen
+server.listen(appPort);
+
+
+console.log('');
+console.log('**************************************************');
+console.log('Server started');
+console.log('Node service starting');
+console.log('Port:     %d', appPort);
+console.log('Mode:     %s', appEnv);
+console.log('PID:      %s', process.pid);
+console.log('Platform: %s', process.platform);
+console.log('Arch:     %s', process.arch);
+console.log('Node:     %s', process.versions.node);
+console.log('V8:       %s', process.versions.v8);
+console.log('**************************************************');
+console.log('');

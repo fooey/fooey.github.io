@@ -15,7 +15,7 @@ var livereload = require('gulp-livereload');
 */
 
 var paths      = {};
-paths.public   = './public';
+paths.public   = './';
 
 paths.css      = {};
 paths.css.base = paths.public + '/css';
