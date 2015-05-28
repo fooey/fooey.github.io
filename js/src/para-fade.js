@@ -1,13 +1,13 @@
 'use strict';
 
 
-module.exports = function(scrollListeners, $container, $content) {
+module.exports = function($win, $container, $content) {
     if ($container && $content) {
         const contentTop    = $container.offset().top;
         const contentBottom = $container.offset().top + $container.outerHeight() + 1;
 
 
-        scrollListeners.push(onScroll.bind(null, $content, contentTop, contentBottom));
+        $win.on('throttledScroll', onScroll.bind(null, $content, contentTop, contentBottom));
     }
 };
 

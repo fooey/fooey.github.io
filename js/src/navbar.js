@@ -3,13 +3,12 @@
 const _ = require('lodash');
 
 
-module.exports = function(scrollListeners) {
+module.exports = function($win) {
     // let $nav2 = $('#navbar2');
 
     const navHeight = 60;
     const minWidth  = 768;
 
-    let $win       = $(window);
     let $hamburger = $('#hamburger');
     let $toggle    = $hamburger.find('.toggle');
     let $menu      = $hamburger.find('.menu');
@@ -77,6 +76,5 @@ module.exports = function(scrollListeners) {
 
     navSlider();
 
-
-    scrollListeners.push(navSlider);
+    $win.on('throttledScroll', navSlider);
 };

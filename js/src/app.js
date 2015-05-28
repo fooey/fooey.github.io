@@ -4,40 +4,39 @@ require('babel/polyfill');
 
 const _     = require('lodash');
 
-const navbar = require('./navbar');
-const paraFade = require('./para-fade');
-
 
 $(function() {
 
+    // 3rd party jquery plugins
     $('.lightboxed').featherlight('image');
 
 
-    require('./nospam')('.nospam-email-address');
-    require('./header-anchors');
-    require('./bootstrap-fixes');
 
+    // create a throttledScroll event on the window limited to 30 calls per second
 
     let $win  = $(window);
-    let scrollListeners = [];
+    $win.scroll(_.throttle(
+        $win.trigger.bind($win, 'throttledScroll'),
+        1000 / 30
+    ));
 
 
-    navbar(scrollListeners);
 
-    paraFade(scrollListeners, $('#welcome'), $('#welcome header'));
+    // custom js modules
 
+    require('./nospam')('.nospam-email-address');
+    require('./header-anchors');
+    // require('./bootstrap-fixes');
 
-   $win.scroll(_.throttle(function() {
-       scrollListeners.forEach(fn => fn());
-    }, 1000 / 60));
-
+    require('./navbar')($win);
+    require('./para-fade')($win, $('#welcome'), $('#welcome header'));
 
 
     $('.img-lazy').each(function(){
-        let $img = $(this);
-        let src = $img.data('src');
+        let $el = $(this);
+        let src = $el.data('src');
 
-        $(this).attr('src', src);
+        $el.attr('src', src);
     });
 
 });
