@@ -31,4 +31,13 @@ $(function() {
        scrollListeners.forEach(fn => fn());
     }, 1000 / 60));
 
+
+
+    $('.img-lazy').each(function(){
+        let $img = $(this);
+        let src = $img.data('src');
+
+        $(this).attr('src', src);
+    });
+
 });

@@ -37,11 +37,11 @@
             figure.thumbnail
                 .exampleContainer
                     a.lightboxed(href="/img/examples/nosrc.usage.png")
-                        img.example.img-responsive.img-rounded(src="/img/examples/nosrc.usage.png")
+                        img.example.img-responsive.img-rounded.img-lazy(src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"></svg>', data-src="/img/examples/nosrc.usage.png")
 
             figure.thumbnail
                 .exampleContainer
                     a.lightboxed(href="http://nosrc.net/500x100")
-                        img.example.img-responsive.img-rounded(src="http://nosrc.net/500x100")
+                        img.example.img-responsive.img-rounded.img-lazy(src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"></svg>', data-src="http://nosrc.net/500x100")
                 figcaption.caption
                     p: code &lt;img src="http://nosrc.net/500x100"&gt;
