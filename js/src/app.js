@@ -32,7 +32,7 @@ $(function() {
     require('./para-fade')($win, $('#welcome'), $('#welcome header'));
 
 
-    $('.img-lazy').each(function(){
+    $('.img-lazy').each(function() {
         let $el = $(this);
         let src = $el.data('src');
 

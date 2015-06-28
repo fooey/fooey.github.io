@@ -14,7 +14,6 @@
 
         dl {
             dt {
-                font-size: 85%;
                 font-weight: bold;
                 color: rgba(0,0,0,0.7);
             }
@@ -27,14 +26,12 @@
                 margin-top: 2em;
             }
 
-        }
-        ul.tags {
-            .listify(8em);
-
-            li.title {
-                font-weight: bold;
-                color: rgba(0,0,0,0.7);
+            &.compact {
+                dd + dt {
+                    margin-top: 0;
+                }
             }
+
         }
     }
 
@@ -58,6 +55,10 @@
             margin: 0;
             padding: 0;
         }
+    }
+
+    .tags {
+        .listify(8em);
     }
 
 }

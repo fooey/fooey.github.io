@@ -18,5 +18,6 @@
 
     "maximumLineLength": null,
     "validateLineBreaks": null,
-    "validateIndentation": 4
+    "validateIndentation": 4,
+    "validateQuoteMarks": "'"
 }
