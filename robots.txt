@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /resume/
-Disallow: /views/
-Disallow: /gulp/
-Disallow: /node_modules/
