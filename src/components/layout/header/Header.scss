@@ -1,0 +1,54 @@
+$header-mobile-breakpoint: 767px;
+
+.-layout-header {
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0; 
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+
+  color: #fff;
+  background-color: #00bce3;
+
+  @media only screen and (min-width: $header-mobile-breakpoint) {
+    flex-flow: row;
+  }
+  
+  .-layout-header-nav {
+    display: flex;
+    height: 0;
+    overflow: hidden;
+
+    transition: height 140ms ease-in, 
+      padding 140ms ease-in, 
+      font-size 140ms ease-in;
+
+    will-change: height, padding, font-size;
+
+    @media only screen and (min-width: $header-mobile-breakpoint) {
+      height: auto;
+    }
+  }
+
+  .-layout-header-logo {  
+    aside {
+      display: flex;
+
+      @media only screen and (min-width: $header-mobile-breakpoint) {
+        display: none;
+      }
+    }
+  }
+
+  &.show-nav {
+    .-layout-header-nav {
+      height: 60vh;
+
+      @media only screen and (min-width: $header-mobile-breakpoint) {
+        height: auto;
+      }
+    }
+  }
+}
