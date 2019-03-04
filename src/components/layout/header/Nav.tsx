@@ -1,15 +1,20 @@
 import React from 'react';
+import { NavLink } from "react-router-dom";
 
 import './Nav.scss';
 
-const Nav: React.FunctionComponent = () => (
+interface INavProps {
+  closeMenu: () => any;
+}
+
+const Nav = ({ closeMenu }: INavProps) => (
   <nav className="-layout-header-nav">
     <ul>
-      <li><a href="#">OVERVIEW</a></li>
-      <li><a href="#">CONTACT</a></li>
-      <li><a href="#">PROJECTS</a></li>
-      <li><a href="#">KNOWLEDGE</a></li>
-      <li><a href="#">RÉSUMÉ</a></li>
+      <li><NavLink onClick={() => closeMenu()} exact activeClassName="selected" to="/">OVERVIEW</NavLink></li>
+      <li><NavLink onClick={() => closeMenu()} exact activeClassName="selected" to="/contact">CONTACT</NavLink></li>
+      <li><NavLink onClick={() => closeMenu()} exact activeClassName="selected" to="/projects">PROJECTS</NavLink></li>
+      <li><NavLink onClick={() => closeMenu()} exact activeClassName="selected" to="/knowledge">KNOWLEDGE</NavLink></li>
+      <li><NavLink onClick={() => closeMenu()} exact activeClassName="selected" to="/resume">RÉSUMÉ</NavLink></li>
     </ul>
   </nav>
 );

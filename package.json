@@ -39,6 +39,7 @@
   ],
   "devDependencies": {
     "@types/classnames": "^2.2.7",
+    "@types/react-router-dom": "^4.3.1",
     "stylelint": "^9.10.1",
     "stylelint-config-rational-order": "0.0.4",
     "stylelint-config-recommended-scss": "^3.2.0",

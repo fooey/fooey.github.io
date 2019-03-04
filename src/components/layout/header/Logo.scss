@@ -12,16 +12,15 @@ $header-mobile-breakpoint: 767px;
 
   h1 {
     margin: 0;
-    padding: 1rem;
+    padding: 1rem 2rem;
     
-    font-size: 10vw;
+    font-size: 18pt;
     font-family: "Poiret One", -apple-system, BlinkMacSystemFont, "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     line-height: 1;
     
-    @media only screen and (min-width: $header-mobile-breakpoint) {
-      padding: 1rem;
-      font-size: 18pt;
-    }
+    // @media only screen and (min-width: $header-mobile-breakpoint) {
+    //   padding: 1rem;
+    // }
 
     a {
       color: #fff;

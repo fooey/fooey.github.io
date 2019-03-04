@@ -14,15 +14,14 @@ const Logo = ({ toggleMenu, isMenuVisible }: ILogoProps) => {
     'hamburger--squeeze': true,
     'is-active': isMenuVisible,
   });
-  console.log('TCL: Logo -> isMenuVisible', isMenuVisible)
 
   return (
     <div className="-layout-header-logo">
       <h1><a href="/">Jason Rushton</a></h1>
       <aside>
-      <button 
-        type="button" 
-        className={headerClass} 
+      <button
+        type="button"
+        className={headerClass}
         onClick={() => toggleMenu()}
       >
         <span className="hamburger-box">

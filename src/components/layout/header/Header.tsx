@@ -10,11 +10,11 @@ const Header = () => {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
 
   function toggleMenu() {
-    const newValue = !isMenuVisible;
-		console.log('TCL: toggleMenu -> newValue', newValue)
-    setIsMenuVisible(newValue);
+    setIsMenuVisible(!isMenuVisible);
+  }
 
-    return newValue;
+  function closeMenu() {
+    setIsMenuVisible(false);
   }
 
   const headerClass = classnames({
@@ -25,7 +25,7 @@ const Header = () => {
   return (
     <header className={headerClass}>
       <Logo toggleMenu={toggleMenu} isMenuVisible={isMenuVisible} />
-      <Nav />
+      <Nav closeMenu={closeMenu} />
     </header>
   );
 };
